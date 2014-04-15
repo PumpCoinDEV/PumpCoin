@@ -1,0 +1,9 @@
+Building PumpCoin
+
+See doc/readme-qt.rst for instructions on building PumpCoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of PumpCoin.
+
+See doc/build-*.txt for instructions on building PumpCoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of PumpCoin.
