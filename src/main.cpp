@@ -2980,7 +2980,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block        
-        const char* pszTimestamp = "News.com.au 10/04/2014 - Did Ultimate Warrior predict his death?";
+        const char* pszTimestamp = "Google News - Trieste, ideato dispositivo che scrive informazioni nelle memorie digitali in modo eccezionale";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2992,13 +2992,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1397743200;
+        block.nTime    = 1397829600;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 592149;
 
         if (fTestNet)
         {
-            block.nTime    = 1397743200;
+            block.nTime    = 1397829600;
             block.nNonce   = 97207;
         }
 		
