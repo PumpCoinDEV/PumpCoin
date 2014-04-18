@@ -2980,7 +2980,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block        
-        const char* pszTimestamp = "Google News - Trieste, ideato dispositivo che scrive informazioni nelle memorie digitali in modo eccezionale";
+        const char* pszTimestamp = "BBC News - S Korea ferry captain arrest sought";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2992,13 +2992,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1397829600;
+        block.nTime    = 1397840400;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 592149;
 
         if (fTestNet)
         {
-            block.nTime    = 1397829600;
+            block.nTime    = 1397840400;
             block.nNonce   = 97207;
         }
 		

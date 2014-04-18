@@ -1,6 +1,5 @@
 ================================
 
-http://PumpCoin.info
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2013-2014 PumpCoin Developers
 
@@ -12,7 +11,7 @@ Building
 --------
 Linux:
 
-	Git clone https://github.com/PumpCoin/PumpCoin
+	Git clone https://github.com/PumpCoinDEV/PumpCoin
 	cd PumpCoin/src
 	make -f makefile.unix USE_UPNP=-
 
