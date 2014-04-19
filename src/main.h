@@ -64,6 +64,7 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 static const int MAX_SCRIPTCHECK_THREADS = 16;
 /**pos*/
 static const int64 MAX_MINT_PROOF_OF_STAKE = 0.10 * COIN;
+static const int64 CIRCULATION_MONEY = MAX_MONEY;
 #ifdef USE_UPNP
 static const int fHaveUPnP = true;
 #else
