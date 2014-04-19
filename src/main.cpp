@@ -99,14 +99,13 @@ void UnregisterWallet(CWallet* pwalletIn)
         setpwalletRegistered.erase(pwalletIn);
     }
 }
-
+bool static GetTransaction(const uint256& hashTx, CWalletTx& wtx)
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
         if (pwallet->GetTransaction(hashTx,wtx))
             return true;
     return false;
 }
-
 
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
