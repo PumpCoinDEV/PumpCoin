@@ -131,28 +131,24 @@ void static SetBestChain(const CBlockLocator& loc)
 }
 
 // notify wallets about an updated transaction
-void static UpdatedTransaction(const uint256& hashTx)
+
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
         pwallet->UpdatedTransaction(hashTx);
 }
 
-// dump all wallets
-void static PrintWallets(const CBlock& block)
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
         pwallet->PrintWallet(block);
 }
 
-// notify wallets about an incoming inventory (for request counts)
-void static Inventory(const uint256& hash)
+
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
         pwallet->Inventory(hash);
 }
 
-// ask wallets to resend their transactions
-void static ResendWalletTransactions()
+
 {
     BOOST_FOREACH(CWallet* pwallet, setpwalletRegistered)
         pwallet->ResendWalletTransactions();
@@ -975,8 +971,6 @@ bool CWalletTx::AcceptWalletTransaction(bool fCheckInputs)
 }
 
 
-// Return transaction in tx, and if it was found inside a block, its hash is placed in hashBlock
-bool GetTransaction(const uint256 &hash, CTransaction &txOut, uint256 &hashBlock, bool fAllowSlow)
 {
     CBlockIndex *pindexSlow = NULL;
     {
@@ -1075,7 +1069,7 @@ bool CBlock::ReadFromDisk(const CBlockIndex* pindex)
     return true;
 }
 
-uint256 static GetOrphanRoot(const CBlockHeader* pblock)
+
 {
     // Work back to the first block in the orphan chain
     while (mapOrphanBlocks.count(pblock->hashPrevBlock))
@@ -1259,7 +1253,6 @@ bool IsInitialBlockDownload()
             pindexBest->GetBlockTime() < GetTime() - 24 * 60 * 60);
 }
 
-void static InvalidChainFound(CBlockIndex* pindexNew)
 {
     if (pindexNew->bnChainTrust > bnBestInvalidTrust)
     {
@@ -2228,7 +2221,6 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
     return true;
 }
 
-bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
 {
     // All modifications to the coin state will be done in this cache.
     // Only when all have succeeded, we push it to pcoinsTip.
