@@ -1,4 +1,4 @@
 obj/version.o: version.cpp version.h clientversion.h \
- /home/pumpcoin/PumpCoin/src/obj/build.h
+ /home/esoteric/Downloads/PumpCoin/src/obj/build.h
 version.cpp version.h clientversion.h :
- /home/pumpcoin/PumpCoin/src/obj/build.h :
+ /home/esoteric/Downloads/PumpCoin/src/obj/build.h :

@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About LogiCoin</source>
-        <translation>Apie LogiCoin</translation>
+        <source>About PumpCoin</source>
+        <translation>Apie PumpCoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;LogiCoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;LogiCoin&lt;/b&gt; versija</translation>
+        <source>&lt;b&gt;PumpCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;PumpCoin&lt;/b&gt; versija</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -33,7 +33,7 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+0"/>
-        <source>The LogiCoin developers</source>
+        <source>The PumpCoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -66,8 +66,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your LogiCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Tai yra jūsų LogiCoin adresai mokėjimų gavimui. Galite duoti skirtingus adresus atskiriems siuntėjams, kad galėtumėte sekti, kas jums moka.</translation>
+        <source>These are your PumpCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Tai yra jūsų PumpCoin adresai mokėjimų gavimui. Galite duoti skirtingus adresus atskiriems siuntėjams, kad galėtumėte sekti, kas jums moka.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -81,8 +81,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a LogiCoin address</source>
-        <translation>Pasirašykite žinutę, kad įrodytume, jog esate LogiCoin adreso savininkas</translation>
+        <source>Sign a message to prove you own a PumpCoin address</source>
+        <translation>Pasirašykite žinutę, kad įrodytume, jog esate PumpCoin adreso savininkas</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -106,8 +106,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified LogiCoin address</source>
-        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas LogiCoin adresas</translation>
+        <source>Verify a message to ensure it was signed with a specified PumpCoin address</source>
+        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas PumpCoin adresas</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -121,7 +121,7 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your LogiCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your PumpCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -247,8 +247,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LOGICOINS&lt;/b&gt;!</source>
-        <translation>Dėmesio: jei užšifruosite savo piniginę ir pamesite slaptafrazę, jūs&lt;b&gt;PRARASITE VISUS SAVO LOGICOINUS&lt;/b&gt;! </translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PumpCoinS&lt;/b&gt;!</source>
+        <translation>Dėmesio: jei užšifruosite savo piniginę ir pamesite slaptafrazę, jūs&lt;b&gt;PRARASITE VISUS SAVO PumpCoinUS&lt;/b&gt;! </translation>
     </message>
     <message>
         <location line="+0"/>
@@ -274,8 +274,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="-56"/>
-        <source>LogiCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your logicoins from being stolen by malware infecting your computer.</source>
-        <translation>LogiCoin dabar užsidarys šifravimo proceso pabaigai. Atminkite, kad piniginės šifravimas negali pilnai apsaugoti logicoinų vagysčių kai tinkle esančios kenkėjiškos programos patenka į jūsų kompiuterį.</translation>
+        <source>PumpCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PumpCoins from being stolen by malware infecting your computer.</source>
+        <translation>PumpCoin dabar užsidarys šifravimo proceso pabaigai. Atminkite, kad piniginės šifravimas negali pilnai apsaugoti PumpCoinų vagysčių kai tinkle esančios kenkėjiškos programos patenka į jūsų kompiuterį.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -373,8 +373,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about LogiCoin</source>
-        <translation>Rodyti informaciją apie LogiCoin</translation>
+        <source>Show information about PumpCoin</source>
+        <translation>Rodyti informaciją apie PumpCoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -418,13 +418,13 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a LogiCoin address</source>
-        <translation>Siųsti monetas LogiCoin adresui</translation>
+        <source>Send coins to a PumpCoin address</source>
+        <translation>Siųsti monetas PumpCoin adresui</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for LogiCoin</source>
-        <translation>Keisti logicoin konfigūracijos galimybes</translation>
+        <source>Modify configuration options for PumpCoin</source>
+        <translation>Keisti PumpCoin konfigūracijos galimybes</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -454,8 +454,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>LogiCoin</source>
-        <translation>LogiCoin</translation>
+        <source>PumpCoin</source>
+        <translation>PumpCoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -479,8 +479,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About LogiCoin</source>
-        <translation>&amp;Apie LogiCoin</translation>
+        <source>&amp;About PumpCoin</source>
+        <translation>&amp;Apie PumpCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -499,12 +499,12 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your LogiCoin addresses to prove you own them</source>
+        <source>Sign messages with your PumpCoin addresses to prove you own them</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified LogiCoin addresses</source>
+        <source>Verify messages to ensure they were signed with specified PumpCoin addresses</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -535,13 +535,13 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+47"/>
-        <source>LogiCoin client</source>
-        <translation>LogiCoin klientas</translation>
+        <source>PumpCoin client</source>
+        <translation>PumpCoin klientas</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to LogiCoin network</source>
-        <translation><numerusform>%n LogiCoin tinklo aktyvus ryšys</numerusform><numerusform>%n LogiCoin tinklo aktyvūs ryšiai</numerusform><numerusform>%n LogiCoin tinklo aktyvūs ryšiai</numerusform></translation>
+        <source>%n active connection(s) to PumpCoin network</source>
+        <translation><numerusform>%n PumpCoin tinklo aktyvus ryšys</numerusform><numerusform>%n PumpCoin tinklo aktyvūs ryšiai</numerusform><numerusform>%n PumpCoin tinklo aktyvūs ryšiai</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -654,7 +654,7 @@ Adresas: %4</translation>
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid LogiCoin address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid PumpCoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -669,7 +669,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. LogiCoin can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. PumpCoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -735,8 +735,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid LogiCoin address.</source>
-        <translation>Įvestas adresas „%1“ nėra galiojantis LogiCoin adresas.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid PumpCoin address.</source>
+        <translation>Įvestas adresas „%1“ nėra galiojantis PumpCoin adresas.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -754,8 +754,8 @@ Adresas: %4</translation>
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>LogiCoin-Qt</source>
-        <translation>LogiCoin-Qt</translation>
+        <source>PumpCoin-Qt</source>
+        <translation>PumpCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -817,13 +817,13 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start LogiCoin after logging in to the system.</source>
+        <source>Automatically start PumpCoin after logging in to the system.</source>
         <translation>Automatiškai paleisti Bitkoin programą įjungus sistemą.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start LogiCoin on system login</source>
-        <translation>&amp;Paleisti LogiCoin programą su window sistemos paleidimu</translation>
+        <source>&amp;Start PumpCoin on system login</source>
+        <translation>&amp;Paleisti PumpCoin programą su window sistemos paleidimu</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -842,8 +842,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the LogiCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatiškai atidaryti LogiCoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
+        <source>Automatically open the PumpCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatiškai atidaryti PumpCoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -852,7 +852,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the LogiCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <source>Connect to the PumpCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>Jungtis į Bitkoin tinklą per  socks proxy (pvz. jungiantis per Tor)</translation>
     </message>
     <message>
@@ -927,8 +927,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting LogiCoin.</source>
-        <translation>Čia gali būti nustatyta naudotojo sąsajos kalba. Šis nustatymas įsigalios iš naujo paleidus LogiCoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting PumpCoin.</source>
+        <translation>Čia gali būti nustatyta naudotojo sąsajos kalba. Šis nustatymas įsigalios iš naujo paleidus PumpCoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -942,7 +942,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show LogiCoin addresses in the transaction list or not.</source>
+        <source>Whether to show PumpCoin addresses in the transaction list or not.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -994,7 +994,7 @@ Adresas: %4</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting LogiCoin.</source>
+        <source>This setting will take effect after restarting PumpCoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1013,7 +1013,7 @@ Adresas: %4</translation>
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LogiCoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the PumpCoin network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1067,7 +1067,7 @@ Adresas: %4</translation>
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start logicoin: click-to-pay handler</source>
+        <source>Cannot start PumpCoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1217,7 +1217,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the LogiCoin-Qt help message to get a list with possible LogiCoin command-line options.</source>
+        <source>Show the PumpCoin-Qt help message to get a list with possible PumpCoin command-line options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1237,13 +1237,13 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>LogiCoin - Debug window</source>
-        <translation>LogiCoin - Derinimo langas</translation>
+        <source>PumpCoin - Debug window</source>
+        <translation>PumpCoin - Derinimo langas</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>LogiCoin Core</source>
-        <translation>LogiCoin branduolys</translation>
+        <source>PumpCoin Core</source>
+        <translation>PumpCoin branduolys</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1252,7 +1252,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the LogiCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the PumpCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1262,7 +1262,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the LogiCoin RPC console.</source>
+        <source>Welcome to the PumpCoin RPC console.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1446,7 +1446,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a LogiCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <source>Enter a PumpCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Įveskite bitkoinų adresą (pvz. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
 </context>
@@ -1511,7 +1511,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this LogiCoin address</source>
+        <source>Sign the message to prove you own this PumpCoin address</source>
         <translation>Registruotis žinute įrodymuii, kad turite šį adresą</translation>
     </message>
     <message>
@@ -1547,8 +1547,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified LogiCoin address</source>
-        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas LogiCoin adresas</translation>
+        <source>Verify the message to ensure it was signed with the specified PumpCoin address</source>
+        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas PumpCoin adresas</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1563,7 +1563,7 @@ Adresas: %4</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a LogiCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <source>Enter a PumpCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
         <translation>Įveskite bitkoinų adresą (pvz. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
@@ -1573,8 +1573,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter LogiCoin signature</source>
-        <translation>Įveskite LogiCoin parašą</translation>
+        <source>Enter PumpCoin signature</source>
+        <translation>Įveskite PumpCoin parašą</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1647,7 +1647,7 @@ Adresas: %4</translation>
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The LogiCoin developers</source>
+        <source>The PumpCoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2185,8 +2185,8 @@ Adresas: %4</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>LogiCoin version</source>
-        <translation>LogiCoin versija</translation>
+        <source>PumpCoin version</source>
+        <translation>PumpCoin versija</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2195,8 +2195,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or logicoind</source>
-        <translation>Siųsti komandą serveriui arba logicoind</translation>
+        <source>Send command to -server or PumpCoind</source>
+        <translation>Siųsti komandą serveriui arba PumpCoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2215,13 +2215,13 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: logicoin.conf)</source>
-        <translation>Nurodyti konfigūracijos failą (pagal nutylėjimąt: logicoin.conf)</translation>
+        <source>Specify configuration file (default: PumpCoin.conf)</source>
+        <translation>Nurodyti konfigūracijos failą (pagal nutylėjimąt: PumpCoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: logicoind.pid)</source>
-        <translation>Nurodyti pid failą (pagal nutylėjimą: logicoind.pid)</translation>
+        <source>Specify pid file (default: PumpCoind.pid)</source>
+        <translation>Nurodyti pid failą (pagal nutylėjimą: PumpCoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2298,13 +2298,13 @@ Adresas: %4</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=logicoinrpc
+rpcuser=PumpCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;PumpCoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2320,7 +2320,7 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. LogiCoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. PumpCoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2365,8 +2365,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong LogiCoin will not work properly.</source>
-        <translation>Įspėjimas: Patikrinkite, kad kompiuterio data ir laikas yra teisingi.Jei Jūsų laikrodis neteisingai nustatytas LogiCoin, veiks netinkamai.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong PumpCoin will not work properly.</source>
+        <translation>Įspėjimas: Patikrinkite, kad kompiuterio data ir laikas yra teisingi.Jei Jūsų laikrodis neteisingai nustatytas PumpCoin, veiks netinkamai.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2615,8 +2615,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the LogiCoin Wiki for SSL setup instructions)</source>
-        <translation>SSL opcijos (žr.e LogiCoin Wiki for SSL setup instructions)</translation>
+        <source>SSL options: (see the PumpCoin Wiki for SSL setup instructions)</source>
+        <translation>SSL opcijos (žr.e PumpCoin Wiki for SSL setup instructions)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2805,13 +2805,13 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of LogiCoin</source>
-        <translation> wallet.dat pakrovimo klaida,  wallet.dat reikalauja naujasnės LogiCoin versijos</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of PumpCoin</source>
+        <translation> wallet.dat pakrovimo klaida,  wallet.dat reikalauja naujasnės PumpCoin versijos</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart LogiCoin to complete</source>
-        <translation>Piniginė turi būti prrašyta: įvykdymui perkraukite LogiCoin</translation>
+        <source>Wallet needed to be rewritten: restart PumpCoin to complete</source>
+        <translation>Piniginė turi būti prrašyta: įvykdymui perkraukite PumpCoin</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2870,8 +2870,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. LogiCoin is probably already running.</source>
-        <translation>Nepavyko susieti šiame kompiuteryje prievado %s. LogiCoin tikriausiai jau veikia.</translation>
+        <source>Unable to bind to %s on this computer. PumpCoin is probably already running.</source>
+        <translation>Nepavyko susieti šiame kompiuteryje prievado %s. PumpCoin tikriausiai jau veikia.</translation>
     </message>
     <message>
         <location line="+64"/>

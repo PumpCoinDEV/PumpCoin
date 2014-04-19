@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About LogiCoin</source>
-        <translation>A LogiCoinról</translation>
+        <source>About PumpCoin</source>
+        <translation>A PumpCoinról</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;LogiCoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;LogiCoin&lt;/b&gt; verzió</translation>
+        <source>&lt;b&gt;PumpCoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;PumpCoin&lt;/b&gt; verzió</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -33,7 +33,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+0"/>
-        <source>The LogiCoin developers</source>
+        <source>The PumpCoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -66,8 +66,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your LogiCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Ezekkel a LogiCoin-címekkel fogadhatod kifizetéseket. Érdemes lehet minden egyes kifizető számára külön címet létrehozni, hogy könnyebben nyomon követhesd, kitől kaptál már pénzt.</translation>
+        <source>These are your PumpCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Ezekkel a PumpCoin-címekkel fogadhatod kifizetéseket. Érdemes lehet minden egyes kifizető számára külön címet létrehozni, hogy könnyebben nyomon követhesd, kitől kaptál már pénzt.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -81,7 +81,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a LogiCoin address</source>
+        <source>Sign a message to prove you own a PumpCoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -106,8 +106,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified LogiCoin address</source>
-        <translation>Üzenet ellenőrzése, hogy valóban a megjelölt LogiCoin címekkel van-e aláírva.</translation>
+        <source>Verify a message to ensure it was signed with a specified PumpCoin address</source>
+        <translation>Üzenet ellenőrzése, hogy valóban a megjelölt PumpCoin címekkel van-e aláírva.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -121,7 +121,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your LogiCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your PumpCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -247,8 +247,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LOGICOINS&lt;/b&gt;!</source>
-        <translation>Figyelem: Ha kódolod a tárcát, és elveszíted a jelszavad, akkor &lt;b&gt;AZ ÖSSZES LOGICOINODAT IS EL FOGOD VESZÍTENI!&lt;/b&gt;</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PumpCoinS&lt;/b&gt;!</source>
+        <translation>Figyelem: Ha kódolod a tárcát, és elveszíted a jelszavad, akkor &lt;b&gt;AZ ÖSSZES PumpCoinODAT IS EL FOGOD VESZÍTENI!&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -274,8 +274,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="-56"/>
-        <source>LogiCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your logicoins from being stolen by malware infecting your computer.</source>
-        <translation>LogiCoin will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
+        <source>PumpCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PumpCoins from being stolen by malware infecting your computer.</source>
+        <translation>PumpCoin will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -373,8 +373,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about LogiCoin</source>
-        <translation>Információk a LogiCoinról</translation>
+        <source>Show information about PumpCoin</source>
+        <translation>Információk a PumpCoinról</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -418,13 +418,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a LogiCoin address</source>
+        <source>Send coins to a PumpCoin address</source>
         <translation>Érmék küldése megadott címre</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for LogiCoin</source>
-        <translation>LogiCoin konfigurációs opciók</translation>
+        <source>Modify configuration options for PumpCoin</source>
+        <translation>PumpCoin konfigurációs opciók</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -454,8 +454,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>LogiCoin</source>
-        <translation>LogiCoin</translation>
+        <source>PumpCoin</source>
+        <translation>PumpCoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -479,8 +479,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About LogiCoin</source>
-        <translation>&amp;A LogiCoinról</translation>
+        <source>&amp;About PumpCoin</source>
+        <translation>&amp;A PumpCoinról</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -499,13 +499,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your LogiCoin addresses to prove you own them</source>
-        <translation>Üzenet aláírása a LogiCoin címmel, amivel bizonyítja, hogy a cím az ön tulajdona.</translation>
+        <source>Sign messages with your PumpCoin addresses to prove you own them</source>
+        <translation>Üzenet aláírása a PumpCoin címmel, amivel bizonyítja, hogy a cím az ön tulajdona.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified LogiCoin addresses</source>
-        <translation>Annak ellenőrzése, hogy az üzenetek valóban a megjelölt LogiCoin címekkel vannak-e alaírva</translation>
+        <source>Verify messages to ensure they were signed with specified PumpCoin addresses</source>
+        <translation>Annak ellenőrzése, hogy az üzenetek valóban a megjelölt PumpCoin címekkel vannak-e alaírva</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -535,13 +535,13 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <location line="+47"/>
-        <source>LogiCoin client</source>
-        <translation>LogiCoin kliens</translation>
+        <source>PumpCoin client</source>
+        <translation>PumpCoin kliens</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to LogiCoin network</source>
-        <translation><numerusform>%n aktív kapcsolat a LogiCoin-hálózattal</numerusform><numerusform>%n aktív kapcsolat a LogiCoin-hálózattal</numerusform></translation>
+        <source>%n active connection(s) to PumpCoin network</source>
+        <translation><numerusform>%n aktív kapcsolat a PumpCoin-hálózattal</numerusform><numerusform>%n aktív kapcsolat a PumpCoin-hálózattal</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -655,7 +655,7 @@ Cím: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid LogiCoin address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid PumpCoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -670,7 +670,7 @@ Cím: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. LogiCoin can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. PumpCoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -736,8 +736,8 @@ Cím: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid LogiCoin address.</source>
-        <translation>A megadott &quot;%1&quot; cím nem egy érvényes LogiCoin-cím.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid PumpCoin address.</source>
+        <translation>A megadott &quot;%1&quot; cím nem egy érvényes PumpCoin-cím.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -755,7 +755,7 @@ Cím: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>LogiCoin-Qt</source>
+        <source>PumpCoin-Qt</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -819,12 +819,12 @@ Cím: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start LogiCoin after logging in to the system.</source>
-        <translation>Induljon el a LogiCoin a számítógép bekapcsolásakor</translation>
+        <source>Automatically start PumpCoin after logging in to the system.</source>
+        <translation>Induljon el a PumpCoin a számítógép bekapcsolásakor</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start LogiCoin on system login</source>
+        <source>&amp;Start PumpCoin on system login</source>
         <translation>&amp;Induljon el a számítógép bekapcsolásakor</translation>
     </message>
     <message>
@@ -844,8 +844,8 @@ Cím: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the LogiCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>A LogiCoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+        <source>Automatically open the PumpCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>A PumpCoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -854,8 +854,8 @@ Cím: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the LogiCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>SOCKS proxyn keresztüli csatlakozás a LogiCoin hálózatához (pl. Tor-on keresztüli csatlakozás esetén)</translation>
+        <source>Connect to the PumpCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>SOCKS proxyn keresztüli csatlakozás a PumpCoin hálózatához (pl. Tor-on keresztüli csatlakozás esetén)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -929,7 +929,7 @@ Cím: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting LogiCoin.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting PumpCoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -944,7 +944,7 @@ Cím: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show LogiCoin addresses in the transaction list or not.</source>
+        <source>Whether to show PumpCoin addresses in the transaction list or not.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -996,8 +996,8 @@ Cím: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting LogiCoin.</source>
-        <translation>Ez a beállítás a LogiCoin ujraindítása után lép érvénybe.</translation>
+        <source>This setting will take effect after restarting PumpCoin.</source>
+        <translation>Ez a beállítás a PumpCoin ujraindítása után lép érvénybe.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1015,8 +1015,8 @@ Cím: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LogiCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a LogiCoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the PumpCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a PumpCoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1069,7 +1069,7 @@ Cím: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start logicoin: click-to-pay handler</source>
+        <source>Cannot start PumpCoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1219,7 +1219,7 @@ Cím: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the LogiCoin-Qt help message to get a list with possible LogiCoin command-line options.</source>
+        <source>Show the PumpCoin-Qt help message to get a list with possible PumpCoin command-line options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1239,12 +1239,12 @@ Cím: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>LogiCoin - Debug window</source>
+        <source>PumpCoin - Debug window</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+25"/>
-        <source>LogiCoin Core</source>
+        <source>PumpCoin Core</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1254,7 +1254,7 @@ Cím: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the LogiCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the PumpCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1264,7 +1264,7 @@ Cím: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the LogiCoin RPC console.</source>
+        <source>Welcome to the PumpCoin RPC console.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1365,7 +1365,7 @@ Cím: %4
     <message>
         <location line="+5"/>
         <source>The amount exceeds your balance.</source>
-        <translation>Nincs ennyi logicoin az egyenlegeden.</translation>
+        <translation>Nincs ennyi PumpCoin az egyenlegeden.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1449,8 +1449,8 @@ Cím: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a LogiCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy LogiCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <source>Enter a PumpCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <translation>Adj meg egy PumpCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
     </message>
 </context>
 <context>
@@ -1473,7 +1473,7 @@ Cím: %4
     <message>
         <location line="+18"/>
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy LogiCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <translation>Adj meg egy PumpCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1514,7 +1514,7 @@ Cím: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this LogiCoin address</source>
+        <source>Sign the message to prove you own this PumpCoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1546,11 +1546,11 @@ Cím: %4
     <message>
         <location line="+21"/>
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy LogiCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <translation>Adj meg egy PumpCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified LogiCoin address</source>
+        <source>Verify the message to ensure it was signed with the specified PumpCoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1566,8 +1566,8 @@ Cím: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a LogiCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Adj meg egy LogiCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
+        <source>Enter a PumpCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <translation>Adj meg egy PumpCoin-címet (pl.: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2 )</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1576,8 +1576,8 @@ Cím: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter LogiCoin signature</source>
-        <translation>Adja meg a LogiCoin aláírást</translation>
+        <source>Enter PumpCoin signature</source>
+        <translation>Adja meg a PumpCoin aláírást</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1650,7 +1650,7 @@ Cím: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The LogiCoin developers</source>
+        <source>The PumpCoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2188,8 +2188,8 @@ Cím: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>LogiCoin version</source>
-        <translation>LogiCoin verzió</translation>
+        <source>PumpCoin version</source>
+        <translation>PumpCoin verzió</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2198,8 +2198,8 @@ Cím: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or logicoind</source>
-        <translation>Parancs küldése a -serverhez vagy a logicoindhez
+        <source>Send command to -server or PumpCoind</source>
+        <translation>Parancs küldése a -serverhez vagy a PumpCoindhez
 </translation>
     </message>
     <message>
@@ -2222,14 +2222,14 @@ Cím: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: logicoin.conf)</source>
-        <translation>Konfigurációs fájl (alapértelmezett: logicoin.conf)
+        <source>Specify configuration file (default: PumpCoin.conf)</source>
+        <translation>Konfigurációs fájl (alapértelmezett: PumpCoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: logicoind.pid)</source>
-        <translation>pid-fájl (alapértelmezett: logicoind.pid)
+        <source>Specify pid file (default: PumpCoind.pid)</source>
+        <translation>pid-fájl (alapértelmezett: PumpCoind.pid)
 </translation>
     </message>
     <message>
@@ -2311,13 +2311,13 @@ Cím: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=logicoinrpc
+rpcuser=PumpCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;PumpCoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2333,7 +2333,7 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. LogiCoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. PumpCoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2378,8 +2378,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong LogiCoin will not work properly.</source>
-        <translation>Figyelem: Ellenőrizd, hogy helyesen van-e beállítva a gépeden a dátum és az idő.  A LogiCoin nem fog megfelelően működni, ha rosszul van beállítvaaz órád.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong PumpCoin will not work properly.</source>
+        <translation>Figyelem: Ellenőrizd, hogy helyesen van-e beállítva a gépeden a dátum és az idő.  A PumpCoin nem fog megfelelően működni, ha rosszul van beállítvaaz órád.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2628,8 +2628,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the LogiCoin Wiki for SSL setup instructions)</source>
-        <translation>SSL-opciók: (lásd a LogiCoin Wiki SSL-beállítási instrukcióit)</translation>
+        <source>SSL options: (see the PumpCoin Wiki for SSL setup instructions)</source>
+        <translation>SSL-opciók: (lásd a PumpCoin Wiki SSL-beállítási instrukcióit)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2829,13 +2829,13 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of LogiCoin</source>
-        <translation>Hiba a wallet.dat betöltése közben: ehhez a tárcához újabb verziójú LogiCoin-kliens szükséges</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of PumpCoin</source>
+        <translation>Hiba a wallet.dat betöltése közben: ehhez a tárcához újabb verziójú PumpCoin-kliens szükséges</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart LogiCoin to complete</source>
-        <translation>A Tárca újraírása szükséges: Indítsa újra a teljesen a LogiCoin-t</translation>
+        <source>Wallet needed to be rewritten: restart PumpCoin to complete</source>
+        <translation>A Tárca újraírása szükséges: Indítsa újra a teljesen a PumpCoin-t</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2880,7 +2880,7 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     <message>
         <location line="-6"/>
         <source>Insufficient funds</source>
-        <translation>Nincs elég logicoinod.</translation>
+        <translation>Nincs elég PumpCoinod.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2894,8 +2894,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. LogiCoin is probably already running.</source>
-        <translation>A %s nem elérhető ezen a gépen. A LogiCoin valószínűleg fut már.</translation>
+        <source>Unable to bind to %s on this computer. PumpCoin is probably already running.</source>
+        <translation>A %s nem elérhető ezen a gépen. A PumpCoin valószínűleg fut már.</translation>
     </message>
     <message>
         <location line="+64"/>

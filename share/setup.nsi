@@ -1,13 +1,13 @@
-Name LogiCoin
+Name PumpCoin
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define COMPANY "LogiCoin project"
+!define COMPANY "PumpCoin project"
 !define VERSION 0.9.0.0
-!define URL http://www.logicoin.io/
+!define URL http://www.PumpCoin.io/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/bitcoin.ico"
@@ -19,8 +19,8 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER LogiCoin
-!define MUI_FINISHPAGE_RUN $INSTDIR\logicoin-qt.exe
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER PumpCoin
+!define MUI_FINISHPAGE_RUN $INSTDIR\PumpCoin-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -45,14 +45,14 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile logicoin-0.9.0.0-win32-setup.exe
-InstallDir $PROGRAMFILES\LogiCoin
+OutFile PumpCoin-0.9.0.0-win32-setup.exe
+InstallDir $PROGRAMFILES\PumpCoin
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion 0.9.0.0
-VIAddVersionKey ProductName LogiCoin
+VIAddVersionKey ProductName PumpCoin
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -66,18 +66,18 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File ../release/logicoin-qt.exe
+    File ../release/PumpCoin-qt.exe
     File /oname=COPYING.txt ../COPYING
     File /oname=readme.txt ../doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File ../src/logicoind.exe
+    File ../src/PumpCoind.exe
     SetOutPath $INSTDIR\src
     File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
     # Remove old wxwidgets-based-bitcoin executable and locales:
-    Delete /REBOOTOK $INSTDIR\logicoin.exe
+    Delete /REBOOTOK $INSTDIR\PumpCoin.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -87,8 +87,8 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\LogiCoin.lnk" $INSTDIR\logicoin-qt.exe
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall LogiCoin.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\PumpCoin.lnk" $INSTDIR\PumpCoin-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall PumpCoin.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
@@ -98,10 +98,10 @@ Section -post SEC0001
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    WriteRegStr HKCR "logicoin" "URL Protocol" ""
-    WriteRegStr HKCR "logicoin" "" "URL:LogiCoin"
-    WriteRegStr HKCR "logicoin\DefaultIcon" "" $INSTDIR\logicoin-qt.exe
-    WriteRegStr HKCR "logicoin\shell\open\command" "" '"$INSTDIR\logicoin-qt.exe" "%1"'
+    WriteRegStr HKCR "PumpCoin" "URL Protocol" ""
+    WriteRegStr HKCR "PumpCoin" "" "URL:PumpCoin"
+    WriteRegStr HKCR "PumpCoin\DefaultIcon" "" $INSTDIR\PumpCoin-qt.exe
+    WriteRegStr HKCR "PumpCoin\shell\open\command" "" '"$INSTDIR\PumpCoin-qt.exe" "%1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -119,7 +119,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\logicoin-qt.exe
+    Delete /REBOOTOK $INSTDIR\PumpCoin-qt.exe
     Delete /REBOOTOK $INSTDIR\COPYING.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -129,9 +129,9 @@ SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall LogiCoin.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\LogiCoin.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\LogiCoin.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall PumpCoin.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\PumpCoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\PumpCoin.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -139,7 +139,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "logicoin"
+    DeleteRegKey HKCR "PumpCoin"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

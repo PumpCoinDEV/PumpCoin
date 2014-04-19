@@ -1,5 +1,6 @@
 ================================
 
+http://PumpCoin.info
 Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2013-2014 PumpCoin Developers
 
@@ -11,7 +12,7 @@ Building
 --------
 Linux:
 
-	Git clone https://github.com/PumpCoinDEV/PumpCoin
+	git clone https://github.com/PumpCoinDEV/PumpCoin
 	cd PumpCoin/src
 	make -f makefile.unix USE_UPNP=-
 
@@ -67,5 +68,3 @@ Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
     qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
     make -f Makefile.test
     ./PumpCoin-qt_test
-
-# README I'll update later

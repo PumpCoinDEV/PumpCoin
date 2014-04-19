@@ -107,7 +107,7 @@ case "$TARGET_OS" in
     NetBSD)
         PLATFORM=OS_NETBSD
         COMMON_FLAGS="$MEMCMP_FLAG -D_REENTRANT -DOS_NETBSD"
-        PLATFORM_LIBS="-lpthread -lgcc_s"
+        PLATFORM_LIBS="-lpthread -PUMPc_s"
         PORT_FILE=port/port_posix.cc
         ;;
     OpenBSD)

@@ -1082,18 +1082,319 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
-int64 static GetBlockValue(int nBits, int nHeight, int64 nFees)
+static const int64 nMinSubsidy = 1 * COIN;
+static const int CUTOFF_HEIGHT = 120960;	// Height at the end of 6 weeks
+// miner's coin base reward based on nBits
+int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
-int64 nSubsidy = 1000 * COIN;
+    int64 nSubsidy = 1000 * COIN;
 
-	// Susidy is cut in half every 86400 (43200=1month) block, Which is about every 60 days.
-	nSubsidy >>= (nHeight / 86400); 
+	if(nHeight == 1)
+	{
+        nSubsidy = 0.03 * CIRCULATION_MONEY;
+		return nSubsidy + nFees;
+	}
+	else if(nHeight > CUTOFF_HEIGHT)	// will be blocked all the pow after CUTOFF_HEIGHT
+	{
+		return nMinSubsidy + nFees;
+	}
 
     return nSubsidy + nFees;
 }
 
+// miner's coin stake reward based on nBits and coin age spent (coin-days)
+// simple algorithm, not depend on the diff
+const int YEARLY_BLOCKCOUNT = 1049040;	// 364.25 * 2880
+int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTime, int nHeight)
+{
+    int64 nRewardCoinYear;
+	nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
+
+	if(nHeight < YEARLY_BLOCKCOUNT)
+        nRewardCoinYear = 3.5 * MAX_MINT_PROOF_OF_STAKE;
+	else if(nHeight < (2 * YEARLY_BLOCKCOUNT))
+        nRewardCoinYear = 2.5 * MAX_MINT_PROOF_OF_STAKE;
+    else if(nHeight > (5 * YEARLY_BLOCKCOUNT))
+		nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE / 10;
+
+    int64 nSubsidy = nCoinAge * nRewardCoinYear / 365;
+	if (fDebug && GetBoolArg("-printcreation"))
+        printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRI64d" nBits=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nBits);
+
+    return nSubsidy;
+}
+
+static const int64 nTargetTimespan = 30 * 30;
+static const int64 nTargetSpacingWorkMax = 3 * nStakeTargetSpacing; 
+
+//
+// maximum nBits value could possible be required nTime after
+// minimum proof-of-work required was nBase
+//
+unsigned int ComputeMaxBits(CBigNum bnTargetLimit, unsigned int nBase, int64 nTime)
+{
+    CBigNum bnResult;
+    bnResult.SetCompact(nBase);
+    bnResult *= 2;
+    while (nTime > 0 && bnResult < bnTargetLimit)
+    {
+        // Maximum 200% adjustment per day...
+        bnResult *= 2;
+        nTime -= 24 * 60 * 60;
+    }
+    if (bnResult > bnTargetLimit)
+        bnResult = bnTargetLimit;
+
+    return bnResult.GetCompact();
+}
+
+//
+// minimum amount of work that could possibly be required nTime after
+// minimum proof-of-work required was nBase
+//
+unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
+{
+    return ComputeMaxBits(bnProofOfWorkLimit, nBase, nTime);
+}
+
+//
+// minimum amount of stake that could possibly be required nTime after
+// minimum proof-of-stake required was nBase
+//
+unsigned int ComputeMinStake(unsigned int nBase, int64 nTime, unsigned int nBlockTime)
+{
+    return ComputeMaxBits(bnProofOfStakeLimit, nBase, nTime);
+}
+
+
+// find last block index up to pindex
+const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake)
+{
+    while (pindex && pindex->pprev && (pindex->IsProofOfStake() != fProofOfStake))
+        pindex = pindex->pprev;
+    return pindex;
+}
+
+unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake) 
+{
+    CBigNum bnTargetLimit = bnProofOfWorkLimit;
+
+    if(fProofOfStake)
+    {
+        // Proof-of-Stake blocks has own target limit since nVersion=3 supermajority on mainNet and always on testNet
+        bnTargetLimit = bnProofOfStakeLimit;
+    }
+
+    if (pindexLast == NULL)
+        return bnTargetLimit.GetCompact(); // genesis block
+
+    const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
+    if (pindexPrev->pprev == NULL)
+        return bnTargetLimit.GetCompact(); // first block
+    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, fProofOfStake);
+    if (pindexPrevPrev->pprev == NULL)
+        return bnTargetLimit.GetCompact(); // second block
+
+    int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
+	if(nActualSpacing < 0)
+	{
+		nActualSpacing = 1;
+	}
+	else if(nActualSpacing > nTargetTimespan)
+	{
+		nActualSpacing = nTargetTimespan;
+	}
+
+    // target change every block
+    // retarget with exponential moving toward target spacing
+    CBigNum bnNew;
+    bnNew.SetCompact(pindexPrev->nBits);
+
+    int64 nTargetSpacing = fProofOfStake? nStakeTargetSpacing : min(nTargetSpacingWorkMax, (int64) nStakeTargetSpacing * (1 + pindexLast->nHeight - pindexPrev->nHeight));
+    int64 nInterval = nTargetTimespan / nTargetSpacing;
+    bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
+    bnNew /= ((nInterval + 1) * nTargetSpacing);
+
+    if (bnNew > bnTargetLimit)
+        bnNew = bnTargetLimit;
+
+    return bnNew.GetCompact();
+}
+
+bool CheckProofOfWork(uint256 hash, unsigned int nBits)
+{
+    CBigNum bnTarget;
+    bnTarget.SetCompact(nBits);
+
+    // Check range
+    if (bnTarget <= 0 || bnTarget > bnProofOfWorkLimit)
+        return error("CheckProofOfWork() : nBits below minimum work");
+
+    // Check proof of work matches claimed amount
+    if (hash > bnTarget.getuint256())
+        return error("CheckProofOfWork() : hash doesn't match nBits");
+
+    return true;
+}
+
+// Return maximum amount of blocks that other nodes claim to have
+int GetNumBlocksOfPeers()
+{
+    return std::max(cPeerBlockCounts.median(), Checkpoints::GetTotalBlocksEstimate());
+}
+
+bool IsInitialBlockDownload()
+{
+    if (pindexBest == NULL || nBestHeight < Checkpoints::GetTotalBlocksEstimate())
+        return true;
+    static int64 nLastUpdate;
+    static CBlockIndex* pindexLastBest;
+    if (pindexBest != pindexLastBest)
+    {
+        pindexLastBest = pindexBest;
+        nLastUpdate = GetTime();
+    }
+    return (GetTime() - nLastUpdate < 10 &&
+            pindexBest->GetBlockTime() < GetTime() - 24 * 60 * 60);
+}
+
+void static InvalidChainFound(CBlockIndex* pindexNew)
+{
+    if (pindexNew->bnChainTrust > bnBestInvalidTrust)
+    {
+        bnBestInvalidTrust = pindexNew->bnChainTrust;
+        CTxDB().WriteBestInvalidTrust(bnBestInvalidTrust);
+        uiInterface.NotifyBlocksChanged();
+    }
+
+    printf("InvalidChainFound: invalid block=%s  height=%d  trust=%s  date=%s\n",
+      pindexNew->GetBlockHash().ToString().substr(0,20).c_str(), pindexNew->nHeight,
+      pindexNew->bnChainTrust.ToString().c_str(), DateTimeStrFormat("%x %H:%M:%S",
+      pindexNew->GetBlockTime()).c_str());
+    printf("InvalidChainFound:  current best=%s  height=%d  trust=%s  date=%s\n",
+      hashBestChain.ToString().substr(0,20).c_str(), nBestHeight, bnBestChainTrust.ToString().c_str(),
+      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()).c_str());
+}
+
+void CBlock::UpdateTime(const CBlockIndex* pindexPrev)
+{
+    nTime = max(GetBlockTime(), GetAdjustedTime());
+}
+
+
+bool CTransaction::DisconnectInputs(CTxDB& txdb)
+{
+    // Relinquish previous transactions' spent pointers
+    if (!IsCoinBase())
+    {
+        BOOST_FOREACH(const CTxIn& txin, vin)
+        {
+            COutPoint prevout = txin.prevout;
+
+            // Get prev txindex from disk
+            CTxIndex txindex;
+            if (!txdb.ReadTxIndex(prevout.hash, txindex))
+                return error("DisconnectInputs() : ReadTxIndex failed");
+
+            if (prevout.n >= txindex.vSpent.size())
+                return error("DisconnectInputs() : prevout.n out of range");
+
+            // Mark outpoint as not spent
+            txindex.vSpent[prevout.n].SetNull();
+
+            // Write back
+            if (!txdb.UpdateTxIndex(prevout.hash, txindex))
+                return error("DisconnectInputs() : UpdateTxIndex failed");
+        }
+    }
+
+    // Remove transaction from index
+    // This can fail if a duplicate of this transaction was in a chain that got
+    // reorganized away. This is only possible if this transaction was completely
+    // spent, so erasing it would be a no-op anyway.
+    txdb.EraseTxIndex(*this);
+
+    return true;
+}
+
+
+bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTestPool,
+                               bool fBlock, bool fMiner, MapPrevTx& inputsRet, bool& fInvalid)
+{
+    // FetchInputs can return false either because we just haven't seen some inputs
+    // (in which case the transaction should be stored as an orphan)
+    // or because the transaction is malformed (in which case the transaction should
+    // be dropped).  If tx is definitely invalid, fInvalid will be set to true.
+    fInvalid = false;
+
+    if (IsCoinBase())
+        return true; // Coinbase transactions have no inputs to fetch.
+
+    for (unsigned int i = 0; i < vin.size(); i++)
+    {
+        COutPoint prevout = vin[i].prevout;
+        if (inputsRet.count(prevout.hash))
+            continue; // Got it already
+
+        // Read txindex
+        CTxIndex& txindex = inputsRet[prevout.hash].first;
+        bool fFound = true;
+        if ((fBlock || fMiner) && mapTestPool.count(prevout.hash))
+        {
+            // Get txindex from current proposed changes
+            txindex = mapTestPool.find(prevout.hash)->second;
+        }
+        else
+        {
+            // Read txindex from txdb
+            fFound = txdb.ReadTxIndex(prevout.hash, txindex);
+        }
+        if (!fFound && (fBlock || fMiner))
+            return fMiner ? false : error("FetchInputs() : %s prev tx %s index entry not found", GetHash().ToString().substr(0,10).c_str(),  prevout.hash.ToString().substr(0,10).c_str());
+
+        // Read txPrev
+        CTransaction& txPrev = inputsRet[prevout.hash].second;
+        if (!fFound || txindex.pos == CDiskTxPos(1,1,1))
+        {
+            // Get prev tx from single transactions in memory
+            {
+                LOCK(mempool.cs);
+                if (!mempool.exists(prevout.hash))
+                    return error("FetchInputs() : %s mempool Tx prev not found %s", GetHash().ToString().substr(0,10).c_str(),  prevout.hash.ToString().substr(0,10).c_str());
+                txPrev = mempool.lookup(prevout.hash);
+            }
+            if (!fFound)
+                txindex.vSpent.resize(txPrev.vout.size());
+        }
+        else
+        {
+            // Get prev tx from disk
+            if (!txPrev.ReadFromDisk(txindex.pos))
+                return error("FetchInputs() : %s ReadFromDisk prev tx %s failed", GetHash().ToString().substr(0,10).c_str(),  prevout.hash.ToString().substr(0,10).c_str());
+        }
+    }
+
+    // Make sure all prevout.n indexes are valid:
+    for (unsigned int i = 0; i < vin.size(); i++)
+    {
+        const COutPoint prevout = vin[i].prevout;
+        assert(inputsRet.count(prevout.hash) != 0);
+        const CTxIndex& txindex = inputsRet[prevout.hash].first;
+        const CTransaction& txPrev = inputsRet[prevout.hash].second;
+        if (prevout.n >= txPrev.vout.size() || prevout.n >= txindex.vSpent.size())
+        {
+            // Revisit this if/when transaction replacement is implemented and allows
+            // adding inputs:
+            fInvalid = true;
+            return DoS(100, error("FetchInputs() : %s prevout.n out of range %d %"PRIszu" %"PRIszu" prev tx %s\n%s", GetHash().ToString().substr(0,10).c_str(), prevout.n, txPrev.vout.size(), txindex.vSpent.size(), prevout.hash.ToString().substr(0,10).c_str(), txPrev.ToString().c_str()));
+        }
+    }
+
+    return true;
+}
+
 static const int64 nTargetTimespan = 24 * 60 * 60; // PumpCoin: 1 day
-static const int64 nTargetSpacing =  60; // PumpCoin: 1 Minute
+static const int64 nTargetSpacing =  30; // PumpCoin: 30 sec
 static const int64 nInterval = nTargetTimespan / nTargetSpacing; // 576
 
 //
@@ -2947,7 +3248,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xcf;
         pchMessageStart[2] = 0xb9;
         pchMessageStart[3] = 0xd3;
-        hashGenesisBlock = uint256("0x0000034200104794a820a5b35c1ca49708be0617279d2df0ccab3adef4c07bd6");
+        hashGenesisBlock = uint256("0x00000b9347003935916f263ae6d45ef6e64b173ad2eff5fe16e26a94dff5536a");
     }
 
     //
@@ -2980,7 +3281,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block        
-        const char* pszTimestamp = "BBC News - S Korea ferry captain arrest sought";
+        const char* pszTimestamp = "Yahoo news 19/04/14 - Fa pipì nel bacino idrico: 143 milioni di litri d'acqua buttati via";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2992,14 +3293,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1397916000; // 19 Aprile - 16:00
+        block.nTime    = 1398006000;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 592149;
 
         if (fTestNet)
         {
-            block.nTime    = 1397916000;
-            block.nNonce   = 998757;
+            block.nTime    = 1398006000;
+            block.nNonce   = 97207;
         }
 		
 		if (true && block.GetHash() != hashGenesisBlock)
@@ -3037,7 +3338,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x1a3e0752699fe1921d91a60233664db04aee88202e947fec0551b1f1c11b14a6"));
+        assert(block.hashMerkleRoot == uint256("0x26ea5e843b92d13893e38deb922adfa2f29193927e4c43ed88f61f8a425f49d6"));
         block.print();
         assert(hash == hashGenesisBlock);
 

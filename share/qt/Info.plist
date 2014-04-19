@@ -3,11 +3,11 @@
 <plist version="0.9">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>logicoin.icns</string>
+	<string>PumpCoin.icns</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>$VERSION, Copyright © 2014 The Logicoin developers</string>
+	<string>$VERSION, Copyright © 2014 The PumpCoin developers</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$VERSION</string>
 	<key>CFBundleVersion</key>
@@ -15,19 +15,19 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>LogiCoin-Qt</string>
+	<string>PumpCoin-Qt</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.logicoin.LogiCoin-Qt</string>
+	<string>org.PumpCoin.PumpCoin-Qt</string>
         <key>CFBundleURLTypes</key>
         <array>
           <dict>
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
             <key>CFBundleURLName</key>
-            <string>org.logicoin.LogiCoinPayment</string>
+            <string>org.PumpCoin.PumpCoinPayment</string>
             <key>CFBundleURLSchemes</key>
             <array>
-              <string>logicoin</string>
+              <string>PumpCoin</string>
             </array>
           </dict>
         </array>

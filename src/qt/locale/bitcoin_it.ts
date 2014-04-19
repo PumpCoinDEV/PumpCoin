@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About LogiCoin</source>
-        <translation>Info su LogiCoin</translation>
+        <source>About PumpCoin</source>
+        <translation>Info su PumpCoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;LogiCoin&lt;/b&gt; version</source>
-        <translation>Versione di &lt;b&gt;LogiCoin&lt;/b&gt;</translation>
+        <source>&lt;b&gt;PumpCoin&lt;/b&gt; version</source>
+        <translation>Versione di &lt;b&gt;PumpCoin&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -34,8 +34,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+0"/>
-        <source>The LogiCoin developers</source>
-        <translation>Sviluppatori di LogiCoin</translation>
+        <source>The PumpCoin developers</source>
+        <translation>Sviluppatori di PumpCoin</translation>
     </message>
 </context>
 <context>
@@ -67,8 +67,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your LogiCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Questi sono i tuoi indirizzi LogiCoin per ricevere pagamenti. Potrai darne uno diverso ad ognuno per tenere così traccia di chi ti sta pagando.</translation>
+        <source>These are your PumpCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Questi sono i tuoi indirizzi PumpCoin per ricevere pagamenti. Potrai darne uno diverso ad ognuno per tenere così traccia di chi ti sta pagando.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -82,7 +82,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a LogiCoin address</source>
+        <source>Sign a message to prove you own a PumpCoin address</source>
         <translation>Firma un messaggio per dimostrare di possedere questo indirizzo</translation>
     </message>
     <message>
@@ -107,8 +107,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified LogiCoin address</source>
-        <translation>Verifica un messaggio per accertarsi che sia firmato con un indirizzo LogiCoin specifico</translation>
+        <source>Verify a message to ensure it was signed with a specified PumpCoin address</source>
+        <translation>Verifica un messaggio per accertarsi che sia firmato con un indirizzo PumpCoin specifico</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -122,7 +122,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your LogiCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your PumpCoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -138,7 +138,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     <message>
         <location line="+1"/>
         <source>Send &amp;Coins</source>
-        <translation>Invia &amp;LogiCoin</translation>
+        <translation>Invia &amp;PumpCoin</translation>
     </message>
     <message>
         <location line="+260"/>
@@ -248,8 +248,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LOGICOINS&lt;/b&gt;!</source>
-        <translation>Attenzione: se si cifra il portamonete e si perde la frase d&apos;ordine, &lt;b&gt;SI PERDERANNO TUTTI I PROPRI LOGICOIN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PumpCoinS&lt;/b&gt;!</source>
+        <translation>Attenzione: se si cifra il portamonete e si perde la frase d&apos;ordine, &lt;b&gt;SI PERDERANNO TUTTI I PROPRI PumpCoin&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -275,8 +275,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="-56"/>
-        <source>LogiCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your logicoins from being stolen by malware infecting your computer.</source>
-        <translation>LogiCoin verrà ora chiuso per finire il processo di crittazione. Ricorda che criptare il tuo portamonete non può fornire una protezione totale contro furti causati da malware che dovessero infettare il tuo computer.</translation>
+        <source>PumpCoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PumpCoins from being stolen by malware infecting your computer.</source>
+        <translation>PumpCoin verrà ora chiuso per finire il processo di crittazione. Ricorda che criptare il tuo portamonete non può fornire una protezione totale contro furti causati da malware che dovessero infettare il tuo computer.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -374,8 +374,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about LogiCoin</source>
-        <translation>Mostra informazioni su LogiCoin</translation>
+        <source>Show information about PumpCoin</source>
+        <translation>Mostra informazioni su PumpCoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -419,13 +419,13 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a LogiCoin address</source>
-        <translation>Invia monete ad un indirizzo logicoin</translation>
+        <source>Send coins to a PumpCoin address</source>
+        <translation>Invia monete ad un indirizzo PumpCoin</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for LogiCoin</source>
-        <translation>Modifica configurazione opzioni per logicoin</translation>
+        <source>Modify configuration options for PumpCoin</source>
+        <translation>Modifica configurazione opzioni per PumpCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -455,8 +455,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>LogiCoin</source>
-        <translation>LogiCoin</translation>
+        <source>PumpCoin</source>
+        <translation>PumpCoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -480,8 +480,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About LogiCoin</source>
-        <translation>&amp;Info su LogiCoin</translation>
+        <source>&amp;About PumpCoin</source>
+        <translation>&amp;Info su PumpCoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -500,13 +500,13 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your LogiCoin addresses to prove you own them</source>
-        <translation>Firma i messaggi con il tuo indirizzo LogiCoin per dimostrare di possederli</translation>
+        <source>Sign messages with your PumpCoin addresses to prove you own them</source>
+        <translation>Firma i messaggi con il tuo indirizzo PumpCoin per dimostrare di possederli</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified LogiCoin addresses</source>
-        <translation>Verifica i messaggi per accertarsi che siano stati firmati con gli indirizzi LogiCoin specificati</translation>
+        <source>Verify messages to ensure they were signed with specified PumpCoin addresses</source>
+        <translation>Verifica i messaggi per accertarsi che siano stati firmati con gli indirizzi PumpCoin specificati</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -536,13 +536,13 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <location line="+47"/>
-        <source>LogiCoin client</source>
-        <translation>LogiCoin client</translation>
+        <source>PumpCoin client</source>
+        <translation>PumpCoin client</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to LogiCoin network</source>
-        <translation><numerusform>%n connessione attiva alla rete LogiCoin</numerusform><numerusform>%n connessioni attive alla rete LogiCoin</numerusform></translation>
+        <source>%n active connection(s) to PumpCoin network</source>
+        <translation><numerusform>%n connessione attiva alla rete PumpCoin</numerusform><numerusform>%n connessioni attive alla rete PumpCoin</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -657,8 +657,8 @@ Indirizzo: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid LogiCoin address or malformed URI parameters.</source>
-        <translation>Impossibile interpretare l&apos;URI! Ciò può essere causato da un indirizzo LogiCoin invalido o da parametri URI non corretti.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid PumpCoin address or malformed URI parameters.</source>
+        <translation>Impossibile interpretare l&apos;URI! Ciò può essere causato da un indirizzo PumpCoin invalido o da parametri URI non corretti.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -672,8 +672,8 @@ Indirizzo: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. LogiCoin can no longer continue safely and will quit.</source>
-        <translation>Riscontrato un errore irreversibile. LogiCoin non può più continuare in sicurezza e verrà terminato.</translation>
+        <source>A fatal error occurred. PumpCoin can no longer continue safely and will quit.</source>
+        <translation>Riscontrato un errore irreversibile. PumpCoin non può più continuare in sicurezza e verrà terminato.</translation>
     </message>
 </context>
 <context>
@@ -738,8 +738,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid LogiCoin address.</source>
-        <translation>L&apos;indirizzo inserito &quot;%1&quot; non è un indirizzo logicoin valido.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid PumpCoin address.</source>
+        <translation>L&apos;indirizzo inserito &quot;%1&quot; non è un indirizzo PumpCoin valido.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -757,8 +757,8 @@ Indirizzo: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>LogiCoin-Qt</source>
-        <translation>LogiCoin-Qt</translation>
+        <source>PumpCoin-Qt</source>
+        <translation>PumpCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -821,13 +821,13 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start LogiCoin after logging in to the system.</source>
-        <translation>Avvia automaticamente LogiCoin all&apos;accensione del computer</translation>
+        <source>Automatically start PumpCoin after logging in to the system.</source>
+        <translation>Avvia automaticamente PumpCoin all&apos;accensione del computer</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start LogiCoin on system login</source>
-        <translation>&amp;Fai partire LogiCoin all&apos;avvio del sistema</translation>
+        <source>&amp;Start PumpCoin on system login</source>
+        <translation>&amp;Fai partire PumpCoin all&apos;avvio del sistema</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -846,8 +846,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the LogiCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Apri automaticamente la porta del client LogiCoin sul router. Questo funziona solo se il router supporta UPnP ed è abilitato.</translation>
+        <source>Automatically open the PumpCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Apri automaticamente la porta del client PumpCoin sul router. Questo funziona solo se il router supporta UPnP ed è abilitato.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -856,7 +856,7 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the LogiCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <source>Connect to the PumpCoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>Connettiti alla rete Bitcon attraverso un proxy SOCKS (ad esempio quando ci si collega via Tor)</translation>
     </message>
     <message>
@@ -931,8 +931,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting LogiCoin.</source>
-        <translation>La lingua dell&apos;interfaccia utente può essere impostata qui. L&apos;impostazione avrà effetto dopo il riavvio di LogiCoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting PumpCoin.</source>
+        <translation>La lingua dell&apos;interfaccia utente può essere impostata qui. L&apos;impostazione avrà effetto dopo il riavvio di PumpCoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -946,8 +946,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show LogiCoin addresses in the transaction list or not.</source>
-        <translation>Se mostrare l&apos;indirizzo LogiCoin nella transazione o meno.</translation>
+        <source>Whether to show PumpCoin addresses in the transaction list or not.</source>
+        <translation>Se mostrare l&apos;indirizzo PumpCoin nella transazione o meno.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -998,8 +998,8 @@ Indirizzo: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting LogiCoin.</source>
-        <translation>L&apos;impostazione avrà effetto dopo il riavvio di LogiCoin.</translation>
+        <source>This setting will take effect after restarting PumpCoin.</source>
+        <translation>L&apos;impostazione avrà effetto dopo il riavvio di PumpCoin.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1017,8 +1017,8 @@ Indirizzo: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the LogiCoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Le informazioni visualizzate sono datate. Il tuo partafogli verrà sincronizzato automaticamente con il network LogiCoin dopo che la connessione è stabilita, ma questo processo non può essere completato ora.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the PumpCoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Le informazioni visualizzate sono datate. Il tuo partafogli verrà sincronizzato automaticamente con il network PumpCoin dopo che la connessione è stabilita, ma questo processo non può essere completato ora.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1071,7 +1071,7 @@ Indirizzo: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start logicoin: click-to-pay handler</source>
+        <source>Cannot start PumpCoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1221,8 +1221,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the LogiCoin-Qt help message to get a list with possible LogiCoin command-line options.</source>
-        <translation>Mostra il messaggio di aiuto di LogiCoin-QT per avere la lista di tutte le opzioni della riga di comando di LogiCoin.</translation>
+        <source>Show the PumpCoin-Qt help message to get a list with possible PumpCoin command-line options.</source>
+        <translation>Mostra il messaggio di aiuto di PumpCoin-QT per avere la lista di tutte le opzioni della riga di comando di PumpCoin.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1241,12 +1241,12 @@ Indirizzo: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>LogiCoin - Debug window</source>
-        <translation>LogiCoin - Finestra debug</translation>
+        <source>PumpCoin - Debug window</source>
+        <translation>PumpCoin - Finestra debug</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>LogiCoin Core</source>
+        <source>PumpCoin Core</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1256,8 +1256,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the LogiCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Apri il file di log del debug di LogiCoin dalla cartella attuale. Può richiedere alcuni secondi per file di log grandi.</translation>
+        <source>Open the PumpCoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Apri il file di log del debug di PumpCoin dalla cartella attuale. Può richiedere alcuni secondi per file di log grandi.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1266,8 +1266,8 @@ Indirizzo: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the LogiCoin RPC console.</source>
-        <translation>Benvenuto nella console RPC di LogiCoin</translation>
+        <source>Welcome to the PumpCoin RPC console.</source>
+        <translation>Benvenuto nella console RPC di PumpCoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1292,7 +1292,7 @@ Indirizzo: %4
         <location line="+5"/>
         <location line="+5"/>
         <source>Send Coins</source>
-        <translation>Spedisci LogiCoin</translation>
+        <translation>Spedisci PumpCoin</translation>
     </message>
     <message>
         <location line="+50"/>
@@ -1342,7 +1342,7 @@ Indirizzo: %4
     <message>
         <location line="+5"/>
         <source>Confirm send coins</source>
-        <translation>Conferma la spedizione di logicoin</translation>
+        <translation>Conferma la spedizione di PumpCoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1387,7 +1387,7 @@ Indirizzo: %4
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Errore: la transazione è stata rifiutata. Ciò accade se alcuni logicoin nel portamonete sono stati già spesi, ad esempio se è stata usata una copia del file wallet.dat e i logicoin sono stati spesi dalla copia ma non segnati come spesi qui.</translation>
+        <translation>Errore: la transazione è stata rifiutata. Ciò accade se alcuni PumpCoin nel portamonete sono stati già spesi, ad esempio se è stata usata una copia del file wallet.dat e i PumpCoin sono stati spesi dalla copia ma non segnati come spesi qui.</translation>
     </message>
 </context>
 <context>
@@ -1450,8 +1450,8 @@ Indirizzo: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a LogiCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Inserisci un indirizzo LogiCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a PumpCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <translation>Inserisci un indirizzo PumpCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
 </context>
 <context>
@@ -1474,7 +1474,7 @@ Indirizzo: %4
     <message>
         <location line="+18"/>
         <source>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Inserisci un indirizzo LogiCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <translation>Inserisci un indirizzo PumpCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1515,7 +1515,7 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this LogiCoin address</source>
+        <source>Sign the message to prove you own this PumpCoin address</source>
         <translation>Firma un messaggio per dimostrare di possedere questo indirizzo</translation>
     </message>
     <message>
@@ -1547,12 +1547,12 @@ Indirizzo: %4
     <message>
         <location line="+21"/>
         <source>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Inserisci un indirizzo LogiCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <translation>Inserisci un indirizzo PumpCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified LogiCoin address</source>
-        <translation>Verifica il messaggio per assicurarsi che sia stato firmato con l&apos;indirizzo LogiCoin specificato</translation>
+        <source>Verify the message to ensure it was signed with the specified PumpCoin address</source>
+        <translation>Verifica il messaggio per assicurarsi che sia stato firmato con l&apos;indirizzo PumpCoin specificato</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1567,8 +1567,8 @@ Indirizzo: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a LogiCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation>Inserisci un indirizzo LogiCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <source>Enter a PumpCoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
+        <translation>Inserisci un indirizzo PumpCoin (ad esempio Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1577,8 +1577,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter LogiCoin signature</source>
-        <translation>Inserisci firma LogiCoin</translation>
+        <source>Enter PumpCoin signature</source>
+        <translation>Inserisci firma PumpCoin</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1598,7 +1598,7 @@ Indirizzo: %4
         <location line="-81"/>
         <location line="+81"/>
         <source>The entered address does not refer to a key.</source>
-        <translation>L&apos;indirizzo logicoin inserito non è associato a nessuna chiave.</translation>
+        <translation>L&apos;indirizzo PumpCoin inserito non è associato a nessuna chiave.</translation>
     </message>
     <message>
         <location line="-73"/>
@@ -1651,8 +1651,8 @@ Indirizzo: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The LogiCoin developers</source>
-        <translation>Sviluppatori di LogiCoin</translation>
+        <source>The PumpCoin developers</source>
+        <translation>Sviluppatori di PumpCoin</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1786,7 +1786,7 @@ Indirizzo: %4
     <message>
         <location line="+3"/>
         <source>Generated coins must mature 120 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Bisogna attendere 120 blocchi prima di spendere I logicoin generati. Quando è stato generato questo blocco, è stato trasmesso alla rete per aggiungerlo alla catena di blocchi. Se non riesce a entrare nella catena, verrà modificato in &quot;non accettato&quot; e non sarà spendibile. Questo può accadere a volte, se un altro nodo genera un blocco entro pochi secondi del tuo.</translation>
+        <translation>Bisogna attendere 120 blocchi prima di spendere I PumpCoin generati. Quando è stato generato questo blocco, è stato trasmesso alla rete per aggiungerlo alla catena di blocchi. Se non riesce a entrare nella catena, verrà modificato in &quot;non accettato&quot; e non sarà spendibile. Questo può accadere a volte, se un altro nodo genera un blocco entro pochi secondi del tuo.</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2139,7 +2139,7 @@ Indirizzo: %4
     <message>
         <location filename="../walletmodel.cpp" line="+193"/>
         <source>Send Coins</source>
-        <translation>Spedisci LogiCoin</translation>
+        <translation>Spedisci PumpCoin</translation>
     </message>
 </context>
 <context>
@@ -2189,8 +2189,8 @@ Indirizzo: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>LogiCoin version</source>
-        <translation>Versione di LogiCoin</translation>
+        <source>PumpCoin version</source>
+        <translation>Versione di PumpCoin</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2199,8 +2199,8 @@ Indirizzo: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or logicoind</source>
-        <translation>Manda il comando a -server o logicoind
+        <source>Send command to -server or PumpCoind</source>
+        <translation>Manda il comando a -server o PumpCoind
 </translation>
     </message>
     <message>
@@ -2223,14 +2223,14 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: logicoin.conf)</source>
-        <translation>Specifica il file di configurazione (di default: logicoin.conf)
+        <source>Specify configuration file (default: PumpCoin.conf)</source>
+        <translation>Specifica il file di configurazione (di default: PumpCoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: logicoind.pid)</source>
-        <translation>Specifica il file pid (default: logicoind.pid)
+        <source>Specify pid file (default: PumpCoind.pid)</source>
+        <translation>Specifica il file pid (default: PumpCoind.pid)
 </translation>
     </message>
     <message>
@@ -2312,13 +2312,13 @@ Indirizzo: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=logicoinrpc
+rpcuser=PumpCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;PumpCoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2334,13 +2334,13 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. LogiCoin is probably already running.</source>
-        <translation>Non è possibile ottenere i dati sulla cartella %s. Probabilmente LogiCoin è già in esecuzione.</translation>
+        <source>Cannot obtain a lock on data directory %s. PumpCoin is probably already running.</source>
+        <translation>Non è possibile ottenere i dati sulla cartella %s. Probabilmente PumpCoin è già in esecuzione.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Errore: la transazione è stata rifiutata. Ciò accade se alcuni logicoin nel portamonete sono stati già spesi, ad esempio se è stata usata una copia del file wallet.dat e i logicoin sono stati spesi dalla copia ma non segnati come spesi qui.</translation>
+        <translation>Errore: la transazione è stata rifiutata. Ciò accade se alcuni PumpCoin nel portamonete sono stati già spesi, ad esempio se è stata usata una copia del file wallet.dat e i PumpCoin sono stati spesi dalla copia ma non segnati come spesi qui.</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2379,8 +2379,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong LogiCoin will not work properly.</source>
-        <translation>Attenzione: si prega di controllare che la data del computer e l&apos;ora siano corrette. Se il vostro orologio è sbagliato LogiCoin non funziona correttamente.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong PumpCoin will not work properly.</source>
+        <translation>Attenzione: si prega di controllare che la data del computer e l&apos;ora siano corrette. Se il vostro orologio è sbagliato PumpCoin non funziona correttamente.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2500,7 +2500,7 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     <message>
         <location line="+1"/>
         <source>Failed to write to coin database</source>
-        <translation>Scrittura nel database dei logicoin fallita</translation>
+        <translation>Scrittura nel database dei PumpCoin fallita</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2629,8 +2629,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the LogiCoin Wiki for SSL setup instructions)</source>
-        <translation>Opzioni SSL: (vedi il wiki di LogiCoin per le istruzioni di configurazione SSL)</translation>
+        <source>SSL options: (see the PumpCoin Wiki for SSL setup instructions)</source>
+        <translation>Opzioni SSL: (vedi il wiki di PumpCoin per le istruzioni di configurazione SSL)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2831,13 +2831,13 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of LogiCoin</source>
-        <translation>Errore caricamento wallet.dat: il wallet richiede una versione nuova di LogiCoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of PumpCoin</source>
+        <translation>Errore caricamento wallet.dat: il wallet richiede una versione nuova di PumpCoin</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart LogiCoin to complete</source>
-        <translation>Il portamonete deve essere riscritto: riavviare LogiCoin per completare</translation>
+        <source>Wallet needed to be rewritten: restart PumpCoin to complete</source>
+        <translation>Il portamonete deve essere riscritto: riavviare PumpCoin per completare</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2896,8 +2896,8 @@ for example: alertnotify=echo %%s | mail -s &quot;LogiCoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. LogiCoin is probably already running.</source>
-        <translation>Impossibile collegarsi alla %s su questo computer. Probabilmente LogiCoin è già in esecuzione.</translation>
+        <source>Unable to bind to %s on this computer. PumpCoin is probably already running.</source>
+        <translation>Impossibile collegarsi alla %s su questo computer. Probabilmente PumpCoin è già in esecuzione.</translation>
     </message>
     <message>
         <location line="+64"/>
