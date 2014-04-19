@@ -1,0 +1,11 @@
+[Protocol]
+exec=PumpCoin-qt '%u'
+protocol=PumpCoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

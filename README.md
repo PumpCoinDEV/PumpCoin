@@ -1,69 +1,23 @@
-================================
+PumpCoin (PUMP)
 
-Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2013-2014 PumpCoin Developers
+PumpCoin secure and energy efficient PoW - PoS coin.
 
-================================
+After 6 weeks coin will be PoS only (Coins generated trought PoS interest)
 
-![GitHub Logo](https://github.com/PumpCoin/PumpCoin/tree/master/src/qt/res/images/splash.png)
+PumpCoin also adopt a variable PoS rate.
 
-Building
---------
-Linux:
+Total supply: 155 billion coins. 
 
-	git clone https://github.com/PumpCoinDEV/PumpCoin
-	cd PumpCoin/src
-	make -f makefile.unix USE_UPNP=-
+Block reward(random): 10000 to 1000
 
+PoW specification: Halved each month (7 days). After 6 weeks-> PoW fixed at 1 coin per block.
 
+PoS will start after at least 15 days of holding of the coins in the wallet. With PoS, the coin is more resilient to 51% attack.
 
-License
--------
+Diff. retarget: Every block / 30 seconds block target
 
-PumpCoin is released under the terms of the MIT license. See `COPYING` for more
-information or see http://opensource.org/licenses/MIT.
+PoS variable interests: 1st year: 35%  2nd year: 25% 3rd year: 20%  4th and subsequent years: 5%
 
-Development process
--------------------
+4 confirmations for transaction (2 minute confirmation) / 50 confirmations for blocks
 
-Developers work in their own trees, then submit pull requests when they think
-their feature or bug fix is ready.
-
-If it is a simple/trivial/non-controversial change, then one of the PumpCoin
-development team members simply pulls it.
-
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-[mailing list](http://sourceforge.net/mailarchive/forum.php?forum_name=bitcoin-development).
-
-The patch will be accepted if there is broad consensus that it is a good thing.
-Developers should expect to rework and resubmit patches if the code doesn't
-match the project's coding conventions (see `doc/coding.txt`) or are
-controversial.
-
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
-regularly to indicate new official, stable release versions of PumpCoin.
-
-Testing
--------
-
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test. Please be patient and help out, and
-remember this is a security-critical project where any mistake might cost people
-lots of money.
-
-### Automated Testing
-
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code.
-
-Unit tests for the core code are in `src/test/`. To compile and run them:
-
-    cd src; make -f makefile.unix test
-
-Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
-
-    qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
-    make -f Makefile.test
-    ./PumpCoin-qt_test
+1% premine for bounties, giveaways, development, support and maintenance, new feature developments etc.

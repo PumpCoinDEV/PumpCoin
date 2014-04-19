@@ -27,7 +27,8 @@ LIBS= -dead_strip
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
 
 ifdef STATIC
-# Build STATIC if you are redistributing the bitcoinf
+# Build STATIC if you are redistributing the bitcoind binary
+TESTLIBS += \
  $(DEPSDIR)/lib/libboost_unit_test_framework-mt.a
 LIBS += \
  $(DEPSDIR)/lib/db48/libdb_cxx-4.8.a \
@@ -35,7 +36,6 @@ LIBS += \
  $(DEPSDIR)/lib/libboost_filesystem-mt.a \
  $(DEPSDIR)/lib/libboost_program_options-mt.a \
  $(DEPSDIR)/lib/libboost_thread-mt.a \
- $(DEPSDIR)/lib/libboost_chrono-mt.a \
  $(DEPSDIR)/lib/libssl.a \
  $(DEPSDIR)/lib/libcrypto.a \
  -lz
@@ -48,7 +48,6 @@ LIBS += \
  -lboost_filesystem-mt \
  -lboost_program_options-mt \
  -lboost_thread-mt \
- -lboost_chrono-mt \
  -lssl \
  -lcrypto \
  -lz
@@ -61,20 +60,16 @@ ifdef RELEASE
 # Compile for maximum compatibility and smallest size.
 # This requires that dependencies are compiled
 # the same way.
-CFLAGS = -mmacosx-version-min=10.5 -arch i386 -O3
+CFLAGS = -mmacosx-version-min=10.5 -arch x86_64 -O3 -msse2
 else
-DEBUGFLAGS = -g
+CFLAGS = -g -msse2
 endif
-
-# osx 10.9 has changed the stdlib default to libc++. To prevent some link error, you may need to use libstdc++
-CFLAGS += -stdlib=libstdc++
 
 # ppc doesn't work because we don't support big-endian
 CFLAGS += -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter \
     $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 
 OBJS= \
-    leveldb/libleveldb.a \
     obj/alert.o \
     obj/version.o \
     obj/checkpoints.o \
@@ -84,6 +79,7 @@ OBJS= \
     obj/key.o \
     obj/db.o \
     obj/init.o \
+    obj/irc.o \
     obj/keystore.o \
     obj/main.o \
     obj/net.o \
@@ -100,23 +96,12 @@ OBJS= \
     obj/util.o \
     obj/wallet.o \
     obj/walletdb.o \
-    obj/hash.o \
-    obj/bloom.o \
     obj/noui.o \
-    obj/leveldb.o \
-    obj/txdb.o\
-    obj/cubehash.o \
-    obj/luffa.o \
-    obj/aes_helper.o \
-    obj/echo.o \
-    obj/shavite.o \
-    obj/simd.o \
-    obj/blake.o\
-    obj/bmw.o\
-    obj/groestl.o\
-    obj/jh.o\
-    obj/keccak.o\
-    obj/skein.o 
+    obj/pbkdf2.o \
+    obj/kernel.o \
+    obj/scrypt_mine.o \
+    obj/scrypt-x86.o \
+    obj/scrypt-x86_64.o
 
 ifndef USE_UPNP
 	override USE_UPNP = -
@@ -139,15 +124,6 @@ all: PumpCoind
 test check: test_PumpCoin FORCE
 	./test_PumpCoin
 
-#
-# LevelDB support
-#
-LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
-DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
-DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
-leveldb/libleveldb.a:
-	@echo "Building LevelDB ..." && cd leveldb && $(MAKE) CC=$(CC) CXX=$(CXX) OPT="$(CFLAGS)" libleveldb.a libmemenv.a && cd ..
-
 # auto-generated dependencies:
 -include obj/*.P
 -include obj-test/*.P
@@ -164,12 +140,11 @@ obj/%.o: %.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-obj/%.o: %.c
-	$(CXX) -c $(CFLAGS) -fpermissive -MMD -MF $(@:%.o=%.d) -o $@ $<
-	@cp $(@:%.o=%.d) $(@:%.o=%.P); \
-	  sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
-	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
-	  rm -f $(@:%.o=%.d)
+obj/scrypt-x86.o: scrypt-x86.S
+	$(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
+
+obj/scrypt-x86_64.o: scrypt-x86_64.S
+	$(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
 
 PumpCoind: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
@@ -193,6 +168,5 @@ clean:
 	-rm -f obj/*.P
 	-rm -f obj-test/*.P
 	-rm -f obj/build.h
-	-cd leveldb && $(MAKE) clean || true
 
 FORCE:

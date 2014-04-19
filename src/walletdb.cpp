@@ -5,7 +5,6 @@
 
 #include "walletdb.h"
 #include "wallet.h"
-#include <boost/version.hpp>
 #include <boost/filesystem.hpp>
 
 using namespace std;
@@ -13,6 +12,7 @@ using namespace boost;
 
 
 static uint64 nAccountingEntryNumber = 0;
+extern bool fWalletUnlockMintOnly;
 
 //
 // CWalletDB
@@ -204,8 +204,7 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
             ssKey >> hash;
             CWalletTx& wtx = pwallet->mapWallet[hash];
             ssValue >> wtx;
-            CValidationState state;
-            if (wtx.CheckTransaction(state) && (wtx.GetHash() == hash) && state.IsValid())
+            if (wtx.CheckTransaction() && (wtx.GetHash() == hash))
                 wtx.BindWallet(pwallet);
             else
             {
@@ -240,8 +239,8 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
             //printf("LoadWallet  %s\n", wtx.GetHash().ToString().c_str());
             //printf(" %12"PRI64d"  %s  %s  %s\n",
             //    wtx.vout[0].nValue,
-            //    DateTimeStrFormat("%Y-%m-%d %H:%M:%S", wtx.GetBlockTime()).c_str(),
-            //    wtx.hashBlock.ToString().c_str(),
+            //    DateTimeStrFormat("%x %H:%M:%S", wtx.GetBlockTime()).c_str(),
+            //    wtx.hashBlock.ToString().substr(0,20).c_str(),
             //    wtx.mapValue["message"].c_str());
         }
         else if (strType == "acentry")
@@ -263,33 +262,52 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         }
         else if (strType == "key" || strType == "wkey")
         {
-            CPubKey vchPubKey;
+            vector<unsigned char> vchPubKey;
             ssKey >> vchPubKey;
-            if (!vchPubKey.IsValid())
-            {
-                strErr = "Error reading wallet database: CPubKey corrupt";
-                return false;
-            }
             CKey key;
-            CPrivKey pkey;
             if (strType == "key")
+            {
+                CPrivKey pkey;
                 ssValue >> pkey;
-            else {
+                key.SetPubKey(vchPubKey);
+                if (!key.SetPrivKey(pkey))
+                {
+                    strErr = "Error reading wallet database: CPrivKey corrupt";
+                    return false;
+                }
+                if (key.GetPubKey() != vchPubKey)
+                {
+                    strErr = "Error reading wallet database: CPrivKey pubkey inconsistency";
+                    return false;
+                }
+                if (!key.IsValid())
+                {
+                    strErr = "Error reading wallet database: invalid CPrivKey";
+                    return false;
+                }
+            }
+            else
+            {
                 CWalletKey wkey;
                 ssValue >> wkey;
-                pkey = wkey.vchPrivKey;
+                key.SetPubKey(vchPubKey);
+                if (!key.SetPrivKey(wkey.vchPrivKey))
+                {
+                    strErr = "Error reading wallet database: CPrivKey corrupt";
+                    return false;
+                }
+                if (key.GetPubKey() != vchPubKey)
+                {
+                    strErr = "Error reading wallet database: CWalletKey pubkey inconsistency";
+                    return false;
+                }
+                if (!key.IsValid())
+                {
+                    strErr = "Error reading wallet database: invalid CWalletKey";
+                    return false;
+                }
             }
-            if (!key.SetPrivKey(pkey, vchPubKey.IsCompressed()))
-            {
-                strErr = "Error reading wallet database: CPrivKey corrupt";
-                return false;
-            }
-            if (key.GetPubKey() != vchPubKey)
-            {
-                strErr = "Error reading wallet database: CPrivKey pubkey inconsistency";
-                return false;
-            }
-            if (!pwallet->LoadKey(key, vchPubKey))
+            if (!pwallet->LoadKey(key))
             {
                 strErr = "Error reading wallet database: LoadKey failed";
                 return false;
@@ -433,10 +451,8 @@ DBErrors CWalletDB::LoadWallet(CWallet* pwallet)
         }
         pcursor->close();
     }
-    catch (boost::thread_interrupted) {
-        throw;
-    }
-    catch (...) {
+    catch (...)
+    {
         result = DB_CORRUPT;
     }
 
@@ -466,11 +482,12 @@ DBErrors CWalletDB::LoadWallet(CWallet* pwallet)
     return result;
 }
 
-void ThreadFlushWalletDB(const string& strFile)
+void ThreadFlushWalletDB(void* parg)
 {
     // Make this thread recognisable as the wallet flushing thread
     RenameThread("bitcoin-wallet");
 
+    const string& strFile = ((const string*)parg)[0];
     static bool fOneThread;
     if (fOneThread)
         return;
@@ -481,9 +498,9 @@ void ThreadFlushWalletDB(const string& strFile)
     unsigned int nLastSeen = nWalletDBUpdated;
     unsigned int nLastFlushed = nWalletDBUpdated;
     int64 nLastWalletUpdate = GetTime();
-    while (true)
+    while (!fShutdown)
     {
-        MilliSleep(500);
+        Sleep(500);
 
         if (nLastSeen != nWalletDBUpdated)
         {
@@ -505,9 +522,8 @@ void ThreadFlushWalletDB(const string& strFile)
                     mi++;
                 }
 
-                if (nRefCount == 0)
+                if (nRefCount == 0 && !fShutdown)
                 {
-                    boost::this_thread::interruption_point();
                     map<string, int>::iterator mi = bitdb.mapFileUseCount.find(strFile);
                     if (mi != bitdb.mapFileUseCount.end())
                     {
@@ -532,7 +548,7 @@ bool BackupWallet(const CWallet& wallet, const string& strDest)
 {
     if (!wallet.fFileBacked)
         return false;
-    while (true)
+    while (!fShutdown)
     {
         {
             LOCK(bitdb.cs_db);
@@ -563,7 +579,7 @@ bool BackupWallet(const CWallet& wallet, const string& strDest)
                 }
             }
         }
-        MilliSleep(100);
+        Sleep(100);
     }
     return false;
 }
@@ -604,11 +620,11 @@ bool CWalletDB::Recover(CDBEnv& dbenv, std::string filename, bool fOnlyKeys)
 
     bool fSuccess = allOK;
     Db* pdbCopy = new Db(&dbenv.dbenv, 0);
-    int ret = pdbCopy->open(NULL,               // Txn pointer
+    int ret = pdbCopy->open(NULL,                 // Txn pointer
                             filename.c_str(),   // Filename
-                            "main",             // Logical db name
-                            DB_BTREE,           // Database type
-                            DB_CREATE,          // Flags
+                            "main",    // Logical db name
+                            DB_BTREE,  // Database type
+                            DB_CREATE,    // Flags
                             0);
     if (ret > 0)
     {

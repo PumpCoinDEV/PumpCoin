@@ -1,9 +1,9 @@
-PumpCoin 0.8.x BETA
+PumpCoin 0.4.0 BETA
 
-Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2011-2013 PumpCoin Developers
+Copyright (c) 2013 PumpCoin Developers
+Copyright (c) 2011-2013 PPCoin Developers
 Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
+file license.txt or http://www.opensource.org/licenses/mit-license.php.
 This product includes software developed by the OpenSSL Project for use in
 the OpenSSL Toolkit (http://www.openssl.org/).  This product includes
 cryptographic software written by Eric Young (eay@cryptsoft.com).
@@ -11,18 +11,57 @@ cryptographic software written by Eric Young (eay@cryptsoft.com).
 
 Intro
 -----
-PumpCoin is a free open source peer-to-peer electronic cash system that is
+PumpCoin is a free open source project derived from PPCoin, with
+the goal of providing a long-term energy-efficient scrypt-based crypto-currency.
+Built on the foundation of Bitcoin, innovations such as proof-of-stake and scrypt
+help further advance the field of crypto-currency.
+
+
+Setup
+-----
+After completing windows setup then run windows command line (cmd)
+  cd daemon
+  PumpCoind
+You would need to create a configuration file PumpCoin.conf in the default
+wallet directory. Grant access to PumpCoind.exe in anti-virus and firewall
+applications if necessary.
+
+The software automatically finds other nodes to connect to.  You can
+enable Universal Plug and Play (UPnP) with your router/firewall
+or forward port 9901 (TCP) to your computer so you can receive
+incoming connections.  PPCoin works without incoming connections,
+but allowing incoming connections helps the PPCoin network.
+
+
+Upgrade
+-------
+All you existing coins/transactions should be intact with the upgrade.
+To upgrade from 0.2.x, first backup wallet
+PumpCoind backupwallet <destination_backup_file>
+Then shutdown ppcoind by
+PumpCoind stop
+Start up the new PumpCoind (0.3.0).
+
+
+------------------
+Bitcoin 0.6.3 BETA
+
+Copyright (c) 2009-2012 Bitcoin Developers
+Distributed under the MIT/X11 software license, see the accompanying
+file license.txt or http://www.opensource.org/licenses/mit-license.php.
+This product includes software developed by the OpenSSL Project for use in
+the OpenSSL Toolkit (http://www.openssl.org/).  This product includes
+cryptographic software written by Eric Young (eay@cryptsoft.com).
+
+
+Intro
+-----
+Bitcoin is a free open source peer-to-peer electronic cash system that is
 completely decentralized, without the need for a central server or trusted
 parties.  Users hold the crypto keys to their own money and transact directly
 with each other, with the help of a P2P network to check for double-spending.
 
 
-Setup
------
-Unpack the files into a directory and run PumpCoin-qt.exe.
-
-PumpCoin-Qt is the original PumpCoin client and it builds the backbone of the network.
-However, it downloads and stores the entire history of PumpCoin transactions;
-depending on the speed of your computer and network connection, the synchronization
-process can take anywhere from a few hours to a day or more.
-
+See the bitcoin wiki at:
+  https://en.bitcoin.it/wiki/Main_Page
+for more help and information.
