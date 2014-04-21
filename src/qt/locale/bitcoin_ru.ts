@@ -1406,8 +1406,8 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Адрес получателя платежа (например 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>The address to send the payment to  (e.g. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</source>
+        <translation>Адрес получателя платежа (например PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1436,8 +1436,8 @@ Address: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a BottleCaps address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Введите BottleCaps-адрес (например 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>Enter a BottleCaps address (e.g. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</source>
+        <translation>Введите BottleCaps-адрес (например PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</translation>
     </message>
 </context>
 <context>
@@ -1460,8 +1460,8 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Адрес, которым вы хотите подписать сообщение  (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>The address to sign the message with (e.g. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</source>
+        <translation>Адрес, которым вы хотите подписать сообщение  (напр. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1524,8 +1524,8 @@ Address: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Адрес, которым было подписано сообщение (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>The address the message was signed with (e.g. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</source>
+        <translation>Адрес, которым было подписано сообщение (напр. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</translation>
     </message>
     <message>
         <location line="+40"/>
@@ -1540,8 +1540,8 @@ Address: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a BottleCaps address (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
-        <translation>Введите адрес BottleCaps (напр. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</translation>
+        <source>Enter a BottleCaps address (e.g. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</source>
+        <translation>Введите адрес BottleCaps (напр. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</translation>
     </message>
     <message>
         <location line="-2"/>

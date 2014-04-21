@@ -1,8 +1,7 @@
 Source: PumpCoin
 Section: utils
 Priority: optional
-Maintainer: Jonas Smedegaard <dr@jones.dk>
-Uploaders: Micah Anderson <micah@debian.org>
+Maintainer: Irving A. Bermúdez S. <bigchirv@gmail.com>
 Build-Depends: debhelper,
  devscripts,
  bash-completion,
@@ -19,9 +18,9 @@ Build-Depends: debhelper,
  libqt4-dev,
  libqrencode-dev
 Standards-Version: 3.9.2
-Homepage: http://www.PumpCoin.su/
-Vcs-Git: git://github.com/CryptoManiac/PumpCoin.git
-Vcs-Browser: http://github.com/CryptoManiac/PumpCoin
+Homepage: http://PumpCoin.cc/
+Vcs-Git: git://github.com/PumpCoinproject/PumpCoin.git
+Vcs-Browser: http://github.com/PumpCoinproject/PumpCoin
 
 Package: PumpCoind
 Architecture: any

@@ -44,7 +44,8 @@ void OptionsModel::Init()
     nDisplayUnit = settings.value("nDisplayUnit", BitcoinUnits::BTC).toInt();
     bDisplayAddresses = settings.value("bDisplayAddresses", false).toBool();
     fMinimizeToTray = settings.value("fMinimizeToTray", false).toBool();
-    fMinimizeOnClose = settings.value("fMinimizeOnClose", false).toBool();
+    fMinimizPUMPClose = settings.value("fMinimizPUMPClose", false).toBool();
+	fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
     nTransactionFee = settings.value("nTransactionFee").toLongLong();
     language = settings.value("language", "").toString();
 
@@ -86,7 +87,7 @@ bool OptionsModel::Upgrade()
         }
     }
     QList<QString> boolOptions;
-    boolOptions << "bDisplayAddresses" << "fMinimizeToTray" << "fMinimizeOnClose" << "fUseProxy" << "fUseUPnP";
+    boolOptions << "bDisplayAddresses" << "fMinimizeToTray" << "fMinimizPUMPClose" << "fUseProxy" << "fUseUPnP";
     foreach(QString key, boolOptions)
     {
         bool value = false;
@@ -140,8 +141,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(fMinimizeToTray);
         case MapPortUPnP:
             return settings.value("fUseUPnP", GetBoolArg("-upnp", true));
-        case MinimizeOnClose:
-            return QVariant(fMinimizeOnClose);
+        case MinimizPUMPClose:
+            return QVariant(fMinimizPUMPClose);
         case ProxyUse:
             return settings.value("fUseProxy", false);
         case ProxyIP: {
@@ -170,6 +171,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(bitdb.GetDetach());
         case Language:
             return settings.value("language", "");
+        case CoinControlFeatures:
+            return QVariant(fCoinControlFeatures);
         default:
             return QVariant();
         }
@@ -197,9 +200,9 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("fUseUPnP", fUseUPnP);
             MapPort();
             break;
-        case MinimizeOnClose:
-            fMinimizeOnClose = value.toBool();
-            settings.setValue("fMinimizeOnClose", fMinimizeOnClose);
+        case MinimizPUMPClose:
+            fMinimizPUMPClose = value.toBool();
+            settings.setValue("fMinimizPUMPClose", fMinimizPUMPClose);
             break;
         case ProxyUse:
             settings.setValue("fUseProxy", value.toBool());
@@ -239,6 +242,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case Fee:
             nTransactionFee = value.toLongLong();
             settings.setValue("nTransactionFee", nTransactionFee);
+            emit transactionFeeChanged(nTransactionFee);
             break;
         case DisplayUnit:
             nDisplayUnit = value.toInt();
@@ -258,6 +262,12 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case Language:
             settings.setValue("language", value);
             break;
+        case CoinControlFeatures: {
+            fCoinControlFeatures = value.toBool();
+            settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
+            emit coinControlFeaturesChanged(fCoinControlFeatures);
+            }
+            break;
         default:
             break;
         }
@@ -272,14 +282,20 @@ qint64 OptionsModel::getTransactionFee()
     return nTransactionFee;
 }
 
+bool OptionsModel::getCoinControlFeatures()
+{
+     return fCoinControlFeatures;
+}
+ 
+
 bool OptionsModel::getMinimizeToTray()
 {
     return fMinimizeToTray;
 }
 
-bool OptionsModel::getMinimizeOnClose()
+bool OptionsModel::getMinimizPUMPClose()
 {
-    return fMinimizeOnClose;
+    return fMinimizPUMPClose;
 }
 
 int OptionsModel::getDisplayUnit()

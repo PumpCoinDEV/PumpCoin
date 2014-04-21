@@ -1400,7 +1400,7 @@ Address: %4
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</source>
+        <source>The address to send the payment to  (e.g. PUMPiW6VWa52G7We3zj12ZrTceewbMG22xW)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1909,6 +1909,11 @@ Address: %4
         <translation>Mined</translation>
     </message>
     <message>
+        <location line="+2"/>
+        <source>Minted</source>
+        <translation>Minted</translation>
+    </message>
+    <message>
         <location line="+38"/>
         <source>(n/a)</source>
         <translation>(n/a)</translation>
@@ -1996,6 +2001,11 @@ Address: %4
         <location line="+1"/>
         <source>Mined</source>
         <translation>Mined</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Minted</source>
+        <translation>Minted</translation>
     </message>
     <message>
         <location line="+1"/>

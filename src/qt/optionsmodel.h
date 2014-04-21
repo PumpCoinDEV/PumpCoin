@@ -20,7 +20,7 @@ public:
         StartAtStartup,    // bool
         MinimizeToTray,    // bool
         MapPortUPnP,       // bool
-        MinimizeOnClose,   // bool
+        MinimizPUMPClose,   // bool
         ProxyUse,          // bool
         ProxyIP,           // QString
         ProxyPort,         // int
@@ -30,6 +30,7 @@ public:
         DisplayAddresses,  // bool
         DetachDatabases,   // bool
         Language,          // QString
+		CoinControlFeatures, // bool
         OptionIDRowCount,
     };
 
@@ -45,20 +46,24 @@ public:
     /* Explicit getters */
     qint64 getTransactionFee();
     bool getMinimizeToTray();
-    bool getMinimizeOnClose();
+    bool getMinimizPUMPClose();
     int getDisplayUnit();
     bool getDisplayAddresses();
+	bool getCoinControlFeatures();
     QString getLanguage() { return language; }
 
 private:
     int nDisplayUnit;
     bool bDisplayAddresses;
     bool fMinimizeToTray;
-    bool fMinimizeOnClose;
+    bool fMinimizPUMPClose;
+	bool fCoinControlFeatures;
     QString language;
 
 signals:
     void displayUnitChanged(int unit);
+	void transactionFeeChanged(qint64);
+    void coinControlFeaturesChanged(bool);
 };
 
 #endif // OPTIONSMODEL_H

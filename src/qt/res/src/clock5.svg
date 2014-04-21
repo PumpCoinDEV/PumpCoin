@@ -85,7 +85,7 @@
        y1="2.8301363"
        x2="14.038582"
        y2="13.171574"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpacPUMPUse" />
     <filter
        inkscape:collect="always"
        id="filter4339">
@@ -98,7 +98,7 @@
        inkscape:collect="always"
        xlink:href="#linearGradient3767"
        id="linearGradient4345"
-       gradientUnits="userSpaceOnUse"
+       gradientUnits="userSpacPUMPUse"
        x1="2.224874"
        y1="2.8301363"
        x2="14.038582"
@@ -111,12 +111,12 @@
        y1="16.148634"
        x2="6.3055735"
        y2="-1.2798394"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpacPUMPUse" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4357"
        id="radialGradient4440"
-       gradientUnits="userSpaceOnUse"
+       gradientUnits="userSpacPUMPUse"
        gradientTransform="matrix(1.5712985,0.01074232,-0.01353758,1.9801676,-4.5655476,-0.68355868)"
        cx="8.1975746"
        cy="-0.080271922"
@@ -127,7 +127,7 @@
        inkscape:collect="always"
        xlink:href="#linearGradient4465"
        id="linearGradient4471"
-       gradientUnits="userSpaceOnUse"
+       gradientUnits="userSpacPUMPUse"
        x1="2.224874"
        y1="2.8301363"
        x2="14.038582"

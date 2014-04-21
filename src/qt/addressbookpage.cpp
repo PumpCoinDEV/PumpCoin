@@ -346,7 +346,7 @@ void AddressBookPage::on_showQRCode_clicked()
         QRCodeDialog *dialog = new QRCodeDialog(address, label, tab == ReceivingTab, this);
         if(optionsModel)
             dialog->setModel(optionsModel);
-        dialog->setAttribute(Qt::WA_DeleteOnClose);
+        dialog->setAttribute(Qt::WA_DeletPUMPClose);
         dialog->show();
     }
 #endif

@@ -2,29 +2,45 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-USE_UPNP:=0
+CXX ?= g++
+
+USE_UPNP:=-
 USE_IPV6:=1
 
+DEPSDIR?=/usr/local
+BOOST_SUFFIX?=-mgw46-mt-sd-1_53
+
 INCLUDEPATHS= \
- -I"C:\boost_1_53_0" \
- -I"C:\db-4.8.30.NC\build_unix" \
- -I"C:\openssl-1.0.1e\include
- 
+ -I"$(CURDIR)" \
+ -I"$(DEPSDIR)/include" \
+ -I"c:/deps/boost" \
+ -I"c:/deps/db/build_unix" \
+ -I"c:/deps/miniupnpc" \
+ -I"c:/deps/ssl/include"
+
 LIBPATHS= \
- -L"C:\boost_1_53_0\stage/lib" \
- -L"C:\db-4.8.30.NC\build_unix" \
- -L"C:\openssl-1.0.1e" 
+ -L"$(CURDIR)/leveldb" \
+ -L"$(CURDIR)/cryptopp" \
+ -L"$(DEPSDIR)/lib" \
+ -L"c:/deps/boost/stage/lib" \
+ -L"c:/deps/db/build_unix" \
+ -L"c:/deps/miniupnpc" \
+ -L"c:/deps/ssl"
 
 LIBS= \
- -l boost_system-mgw45-mt-d-1_53 \
- -l boost_filesystem-mgw45-mt-d-1_53 \
- -l boost_program_options-mgw45-mt-d-1_53 \
- -l boost_thread-mgw45-mt-d-1_53 \
+ -l leveldb \
+ -l cryptopp \
+ -l memenv \
+ -l boost_system$(BOOST_SUFFIX) \
+ -l boost_filesystem$(BOOST_SUFFIX) \
+ -l boost_program_options$(BOOST_SUFFIX) \
+ -l boost_thread$(BOOST_SUFFIX) \
+ -l boost_chrono$(BOOST_SUFFIX) \
  -l db_cxx \
  -l ssl \
  -l crypto
 
-DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE -D__NO_SYSTEM_INCLUDES
+DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
 DEBUGFLAGS=-g
 CFLAGS=-mthreads -O2 -msse2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat
@@ -35,8 +51,8 @@ ifndef USE_UPNP
 	override USE_UPNP = -
 endif
 ifneq (${USE_UPNP}, -)
- INCLUDEPATHS += -I"C:\miniupnpc-1.6-mgw"
- LIBPATHS += -L"C:\miniupnpc-1.6-mgw"
+ INCLUDEPATHS += -I"C:/deps/"
+ LIBPATHS += -L"C:/deps/miniupnpc"
  LIBS += -l miniupnpc -l iphlpapi
  DEFS += -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
 endif
