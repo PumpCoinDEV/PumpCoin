@@ -24,8 +24,8 @@ help further advance the field of crypto-currency.
 Setup
 -----
 Unpack the files into a directory and run:
- bin/32/PumpCoind (headless, 32-bit)
- bin/64/PumpCoind (headless, 64-bit)
+ bin/32/PUMPcoind (headless, 32-bit)
+ bin/64/PUMPcoind (headless, 64-bit)
 
 The software automatically finds other nodes to connect to.  You can
 enable Universal Plug and Play (UPnP) with your router/firewall
@@ -38,13 +38,13 @@ Upgrade
 -------
 All you existing coins/transactions should be intact with the upgrade.
 To upgrade first backup wallet
-PumpCoind backupwallet <destination_backup_file>
-Then shutdown PumpCoind by
-PumpCoind stop
-Start up the new PumpCoind.
+PUMPcoind backupwallet <destination_backup_file>
+Then shutdown PUMPcoind by
+PUMPcoind stop
+Start up the new PUMPcoind.
 
 
 See the documentation/wiki at the PumpCoin site:
-  http://PumpCoin.cc/
+  http://PUMPcoin.cc/
 for help and more information.
 

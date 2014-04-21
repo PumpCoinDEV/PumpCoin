@@ -1,2 +1,2 @@
-debian/bin/PumpCoind usr/bin
-src/PumpCoind usr/lib/PumpCoin
+debian/bin/PUMPcoind usr/bin
+src/PUMPcoind usr/lib/PUMPcoin

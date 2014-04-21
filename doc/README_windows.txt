@@ -25,9 +25,9 @@ Setup
 -----
 After completing windows setup then run windows command line (cmd)
   cd daemon
-  PumpCoind
-You would need to create a configuration file PumpCoin.conf in the default
-wallet directory. Grant access to PumpCoind.exe in anti-virus and firewall
+  PUMPcoind
+You would need to create a configuration file PUMPcoin.conf in the default
+wallet directory. Grant access to PUMPcoind.exe in anti-virus and firewall
 applications if necessary.
 
 The software automatically finds other nodes to connect to.  You can
@@ -40,13 +40,13 @@ Upgrade
 -------
 All you existing coins/transactions should be intact with the upgrade.
 To upgrade first backup wallet
-PumpCoind backupwallet <destination_backup_file>
-Then shutdown PumpCoind by
-PumpCoind stop
-Start up the new PumpCoind.
+PUMPcoind backupwallet <destination_backup_file>
+Then shutdown PUMPcoind by
+PUMPcoind stop
+Start up the new PUMPcoind.
 
 
 See the documentation/wiki at the PumpCoin site:
-  http://PumpCoin.cc/
+  http://PUMPcoin.cc/
 for help and more information.
 

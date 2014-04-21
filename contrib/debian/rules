@@ -5,29 +5,29 @@
 #build/bitcoind::
 #	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_bitcoin)
 
-DEB_INSTALL_EXAMPLES_PumpCoind += debian/examples/*
-DEB_INSTALL_MANPAGES_PumpCoind += debian/manpages/*
+DEB_INSTALL_EXAMPLES_PUMPcoind += debian/examples/*
+DEB_INSTALL_MANPAGES_PUMPcoind += debian/manpages/*
 
 %:
 	dh --with bash-completion $@
 
 override_dh_auto_build:
-	cd src; $(MAKE) -f makefile.unix PumpCoind
+	cd src; $(MAKE) -f makefile.unix PUMPcoind
 	$(MAKE)
 
 override_dh_auto_clean:
-	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f PumpCoin-qt; fi
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f PUMPcoin-qt; fi
 	cd src; $(MAKE) -f makefile.unix clean
 
 override_dh_auto_configure:
-	qmake PumpCoin-qt.pro USE_QRCODE=1
+	qmake PUMPcoin-qt.pro USE_QRCODE=1
 
 override_dh_auto_test:
-	cd src; $(MAKE) -f makefile.unix test_PumpCoin
-	src/test_PumpCoin
+	cd src; $(MAKE) -f makefile.unix test_PUMPcoin
+	src/test_PUMPcoin
 
 # Ensure wrapper is set executable
-binary-post-install/PumpCoind:
-	chmod +x $(cdbs_curdestdir)usr/bin/PumpCoind
-binary-post-install/PumpCoin-qt:
-	chmod +x $(cdbs_curdestdir)usr/bin/PumpCoin-qt
+binary-post-install/PUMPcoind:
+	chmod +x $(cdbs_curdestdir)usr/bin/PUMPcoind
+binary-post-install/PUMPcoin-qt:
+	chmod +x $(cdbs_curdestdir)usr/bin/PUMPcoin-qt

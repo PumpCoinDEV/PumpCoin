@@ -4,6 +4,6 @@ See doc/readme-qt.rst for instructions on building PumpCoin QT,
 the intended-for-end-users, nice-graphical-interface, reference
 implementation of PumpCoin.
 
-See doc/build-*.txt for instructions on building PumpCoind,
+See doc/build-*.txt for instructions on building PUMPCoind,
 the intended-for-services, no-graphical-interface, reference
 implementation of PumpCoin.

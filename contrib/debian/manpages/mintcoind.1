@@ -1,19 +1,19 @@
-.TH PumpCoinD "7" "April 2013" "PumpCoind 3.19" 
+.TH PUMPCOIND "7" "April 2013" "PUMPcoind 3.19" 
 .SH NAME
-PumpCoind \- peer-to-peer network based digital currency
+PUMPcoind \- peer-to-peer network based digital currency
 .SH SYNOPSIS
-PumpCoin [options] <command> [params]  
+PUMPcoin [options] <command> [params]  
 .TP
-PumpCoin [options] help <command> - Get help for a command
+PUMPcoin [options] help <command> - Get help for a command
 .SH DESCRIPTION
-This  manual page documents the PumpCoind program. PumpCoin is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
+This  manual page documents the PUMPcoind program. PumpCoin is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
 
-PumpCoins can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the PumpCoin system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
+PUMPCoins can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the PumpCoin system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
 
 .SH OPTIONS
 .TP
 \fB\-conf=\fR<file>
-Specify configuration file (default: PumpCoin.conf)
+Specify configuration file (default: PUMPcoin.conf)
 .TP
 \fB\-gen\fR
 Generate coins
@@ -84,14 +84,14 @@ This help message
 \fBbackupwallet 'destination'\fR
 Safely copies *wallet.dat* to 'destination', which can be a directory or a path with filename.
 .TP
-\fBgetaccount 'PumpCoinaddress'\fR
+\fBgetaccount 'PUMPcoinaddress'\fR
 Returns the account associated with the given address.
 .TP
-\fBsetaccount 'PumpCoinaddress' ['account']\fR
+\fBsetaccount 'PUMPcoinaddress' ['account']\fR
 Sets the ['account'] associated with the given address. ['account'] may be omitted to remove an address from ['account'].
 .TP
 \fBgetaccountaddress 'account'\fR
-Returns a new PumpCoin address for 'account'.
+Returns a new PUMPcoin address for 'account'.
 .TP
 \fBgetaddressesbyaccount 'account'\fR
 Returns the list of addresses associated with the given 'account'.
@@ -112,7 +112,7 @@ Returns the number of connections to other nodes.
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 .TP
 \fBgetgenerate\fR
-Returns boolean true if server is trying to generate PumpCoins, false otherwise.
+Returns boolean true if server is trying to generate PUMPcoins, false otherwise.
 .TP
 \fBsetgenerate 'generate' ['genproclimit']\fR
 Generation is limited to ['genproclimit'] processors, -1 is unlimited.
@@ -124,13 +124,13 @@ Returns a recent hashes per second performance measurement while generating.
 Returns an object containing server information.
 .TP
 \fBgetnewaddress 'account'\fR
-Returns a new PumpCoin address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
+Returns a new PUMPcoin address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
 .TP
 \fBgetreceivedbyaccount 'account' ['minconf=1']\fR
 Returns the total amount received by addresses associated with 'account' in transactions with at least ['minconf'] confirmations.
 .TP
-\fBgetreceivedbyaddress 'PumpCoinaddress' ['minconf=1']\fR
-Returns the total amount received by 'PumpCoinaddress' in transactions with at least ['minconf'] confirmations.
+\fBgetreceivedbyaddress 'PUMPcoinaddress' ['minconf=1']\fR
+Returns the total amount received by 'PUMPcoinaddress' in transactions with at least ['minconf'] confirmations.
 .TP
 \fBgettransaction 'txid'\fR
 Returns information about a specific transaction, given hexadecimal transaction ID.
@@ -179,26 +179,26 @@ Returns a list of the last ['count'] transactions for 'account' - for all accoun
 \fBmove <'fromaccount'> <'toaccount'> <'amount'> ['minconf=1'] ['comment']\fR
 Moves funds between accounts.
 .TP
-\fBsendfrom* <'account'> <'PumpCoinaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
-Sends amount from account's balance to 'PumpCoinaddress'. This method will fail if there is less than amount PumpCoins with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
+\fBsendfrom* <'account'> <'PUMPcoinaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
+Sends amount from account's balance to 'PUMPcoinaddress'. This method will fail if there is less than amount PUMPcoins with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
 .TP     
-\fBsendtoaddress 'PumpCoinaddress' 'amount' ['comment'] ['comment-to']\fR
-Sends amount from the server's available balance to 'PumpCoinaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
+\fBsendtoaddress 'PUMPcoinaddress' 'amount' ['comment'] ['comment-to']\fR
+Sends amount from the server's available balance to 'PUMPcoinaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
 .TP    
 \fBstop\fR
-Stops the PumpCoin server.
+Stops the PUMPcoin server.
 .TP    
-\fBvalidateaddress 'PumpCoinaddress'\fR
-Checks that 'PumpCoinaddress' looks like a proper PumpCoin address. Returns an object containing:
+\fBvalidateaddress 'PUMPcoinaddress'\fR
+Checks that 'PUMPcoinaddress' looks like a proper PUMPcoin address. Returns an object containing:
 
     "isvalid" : true or false.
     "ismine"  : true if the address is in the server's wallet.
-    "address" : PumpCoinaddress.
+    "address" : PUMPcoinaddress.
 
     *note: ismine and address are only returned if the address is valid.
 
 .SH "SEE ALSO"
-PumpCoin.conf(5)
+PUMPcoin.conf(5)
 .SH AUTHOR
 This manual page was written by Micah Anderson <micah@debian.org> for the Debian system (but may be used by others). Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 3 or any later version published by the Free Software Foundation.
 

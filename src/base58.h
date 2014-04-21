@@ -277,7 +277,7 @@ public:
     enum
     {
         PUBKEY_ADDRESS = 22,  // PumpCoin: address begin with 'P'
-        SCRIPT_ADDRESS = 117,  // p
+        SCRIPT_ADDRESS = 117,  // e
         PUBKEY_ADDRESS_TEST = 111,
         SCRIPT_ADDRESS_TEST = 196,
     };

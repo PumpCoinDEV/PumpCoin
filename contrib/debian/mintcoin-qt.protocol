@@ -1,6 +1,6 @@
 [Protocol]
-exec=PumpCoin-qt '%u'
-protocol=PumpCoin
+exec=PUMPcoin-qt '%u'
+protocol=PUMPcoin
 input=none
 output=none
 helper=true
