@@ -1,5 +1,5 @@
-#ifndef BITCOINFIELD_H
-#define BITCOINFIELD_H
+#ifndef BPUMPOINFIELD_H
+#define BPUMPOINFIELD_H
 
 #include <QWidget>
 
@@ -57,4 +57,4 @@ private slots:
 };
 
 
-#endif // BITCOINFIELD_H
+#endif // BPUMPOINFIELD_H

@@ -138,10 +138,10 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("PumpCoin version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  PUMPCoind [options]                     " + "\n" +
-                  "  PUMPCoind [options] <command> [params]  " + _("Send command to -server or PUMPCoind") + "\n" +
-                  "  PUMPCoind [options] help                " + _("List commands") + "\n" +
-                  "  PUMPCoind [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  PumpCoind [options]                     " + "\n" +
+                  "  PumpCoind [options] <command> [params]  " + _("Send command to -server or PumpCoind") + "\n" +
+                  "  PumpCoind [options] help                " + _("List commands") + "\n" +
+                  "  PumpCoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -220,7 +220,7 @@ std::string HelpMessage()
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
         "  -conf=<file>           " + _("Specify configuration file (default: PumpCoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: PUMPCoind.pid)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: PumpCoind.pid)") + "\n" +
         "  -gen                   " + _("Generate coins") + "\n" +
         "  -gen=0                 " + _("Don't generate coins") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
@@ -231,7 +231,7 @@ std::string HelpMessage()
         "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n" +
         "  -tor=<ip:port>         " + _("Use proxy to reach tor hidden services (default: same as -proxy)") + "\n"
         "  -dns                   " + _("Allow DNS lookups for -addnode, -seednode and -connect") + "\n" +
-        "  -port=<port>           " + _("Listen for connections on <port> (default: 7201 or testnet: 27201)") + "\n" +
+        "  -port=<port>           " + _("Listen for connections on <port> (default: 31813 or testnet: 31814)") + "\n" +
         "  -maxconnections=<n>    " + _("Maintain at most <n> connections to peers (default: 125)") + "\n" +
         "  -addnode=<ip>          " + _("Add a node to connect to and attempt to keep the connection open") + "\n" +
         "  -connect=<ip>          " + _("Connect only to the specified node(s)") + "\n" +
@@ -274,7 +274,7 @@ std::string HelpMessage()
 #endif
         "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n" +
         "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n" +
-        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 7200 or testnet: 27200)") + "\n" +
+        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 31812 or testnet: 31814)") + "\n" +
         "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
         "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +

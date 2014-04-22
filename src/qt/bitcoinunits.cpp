@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("PUMPCoins");
-    case mBTC: return QString("Milli-PUMPCoins (1 / 1,000)");
-    case uBTC: return QString("Micro-PUMPCoins (1 / 1,000,000)");
+    case BTC: return QString("PumpCoins");
+    case mBTC: return QString("Milli-PumpCoins (1 / 1,000)");
+    case uBTC: return QString("Micro-PumpCoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -67,9 +67,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case BTC: return 9; // 999,000,000 (# digits, without commas)
-    case mBTC: return 12; // 999,000,000,000
-    case uBTC: return 15; // 999,000,000,000,000
+    case BTC: return 8; // 21,000,000 (# digits, without commas)
+    case mBTC: return 11; // 21,000,000,000
+    case uBTC: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }

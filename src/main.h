@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_MAIN_H
-#define BITCOIN_MAIN_H
+#ifndef BPUMPOIN_MAIN_H
+#define BPUMPOIN_MAIN_H
 
 #include "bignum.h"
 #include "sync.h"
@@ -30,13 +30,10 @@ static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
-static const int64 MIN_TX_FEE = 10 * CENT;
-static const int64 MIN_RELAY_TX_FEE = 10 * CENT;
-static const int64 MAX_MONEY = 80000000000 * COIN; //80 BIL COIN TOT
-static const int64 CIRCULATION_MONEY = MAX_MONEY;
-static const double TAX_PERCENTAGE = 0.0001;
-static const int64 MAX_MINT_PROOF_OF_STAKE = 0.25 * COIN;	// 10% annual interest
-static const int CUTOFF_POW_BLOCK = 200000;
+static const int64 MIN_TX_FEE = 0.5 * CENT;
+static const int64 MIN_RELAY_TX_FEE = 0.5 * CENT;
+static const int64 MAX_MONEY = 5000000000 * COIN;			// 5BIL
+static const int64 MAX_MINT_PROOF_OF_STAKE = 0.30 * COIN;	// 30% annual interest
 
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 
@@ -50,8 +47,8 @@ static const int fHaveUPnP = true;
 static const int fHaveUPnP = false;
 #endif
 
-static const uint256 hashGenesisBlockOfficial("0x0000058fb7b2d388062c18f4063a5e57f70a8382be08d6fd3f600b9e92b2f9ac");
-static const uint256 hashGenesisBlockTestNet ("0x0000058fb7b2d388062c18f4063a5e57f70a8382be08d6fd3f600b9e92b2f9ac");
+static const uint256 hashGenesisBlockOfficial("0x0000063db33e1441cfaa45e05fce26e0d5e938710781a41bd746aa7d6036834e");
+static const uint256 hashGenesisBlockTestNet ("0x0000063db33e1441cfaa45e05fce26e0d5e938710781a41bd746aa7d6036834e");
 
 static const int64 nMaxClockDrift = 2 * 60 * 60;        // two hours
 
@@ -535,12 +532,6 @@ public:
         return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
     }
 
-	bool IsCoinBaseOrStake() const
-    {
-        return (IsCoinBase() || IsCoinStake());
-    }
-
-
     /** Check for standard transaction types
         @return True if all outputs (scriptPubKeys) use only standard transaction forms
     */
@@ -596,10 +587,10 @@ public:
     {
         // Large (in bytes) low-priority (new, small-coin) transactions
         // need a fee.
-        return dPriority > COIN * 2880 / 250;
+        return dPriority > COIN * 5760 / 250;
     }
 
-    int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=false, enum GetMinFee_mode mode=GMF_BLOCK, unsigned int nBytes = 0) const;
+    int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=false, enum GetMinFee_mode mode=GMF_BLOCK) const;
 
     bool ReadFromDisk(CDiskTxPos pos, FILE** pfileRet=NULL)
     {

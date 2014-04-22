@@ -1,5 +1,5 @@
-#ifndef BITCOINUNITS_H
-#define BITCOINUNITS_H
+#ifndef BPUMPOINUNITS_H
+#define BPUMPOINUNITS_H
 
 #include <QString>
 #include <QAbstractListModel>
@@ -63,4 +63,4 @@ private:
 };
 typedef BitcoinUnits::Unit BitcoinUnit;
 
-#endif // BITCOINUNITS_H
+#endif // BPUMPOINUNITS_H

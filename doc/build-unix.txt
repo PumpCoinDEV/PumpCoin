@@ -82,7 +82,7 @@ Note: If you just want to install bitcoind on Gentoo, you can add the Bitcoin
 emerge -av1 --noreplace boost glib openssl sys-libs/db:4.8
 
 Take the following steps to build (no UPnP support):
- cd ${BITCOIN_DIR}/src
+ cd ${BPUMPOIN_DIR}/src
  make -f makefile.unix USE_UPNP= BDB_INCLUDE_PATH='/usr/include/db4.8'
  strip bitcoind
 
@@ -145,7 +145,7 @@ exploit even if a vulnerability is found, you can take the following measures:
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
     vulnerable buffers are found. By default, bitcoin should be built with a non-executable stack
-    but if one of the libraries it uses asks for an executable stack or somPUMPe makes a mistake
+    but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 

@@ -41,12 +41,12 @@ static CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
 static CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 20);
 static CBigNum bnProofOfStakeLimitTestNet(~uint256(0) >> 20);
 
-unsigned int nStakeMinAge = 60 * 60 * 10;	// minimum age for coin age: 10 hours
-unsigned int nStakeMaxAge = -1;	// stake age of full weight: unlimited
-unsigned int nStakeTargetSpacing = 30;			// 30 sec block spacing
+unsigned int nStakeMinAge = 60 * 60 * 24 * 3;	// minimum age for coin age: 3d
+unsigned int nStakeMaxAge = 60 * 60 * 24 * 100;	// stake age of full weight: 100d
+unsigned int nStakeTargetSpacing = 15;			// 15 sec block spacing
 
-int64 nChainStartTime = 1397722251;
-int nCoinbaseMaturity = 180;
+int64 nChainStartTime = 1397809625;
+int nCoinbaseMaturity = 30;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 CBigNum bnBestChainTrust = 0;
@@ -68,7 +68,7 @@ map<uint256, map<uint256, CDataStream*> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "PumpCoin Signed Message:\n";
+const string strMessageMagic = "InfomationCoin Signed Message:\n";
 
 double dHashesPerSec;
 int64 nHPSTimerStart;
@@ -463,12 +463,17 @@ bool CTransaction::CheckTransaction() const
     for (unsigned int i = 0; i < vout.size(); i++)
     {
         const CTxOut& txout = vout[i];
+		
         if (txout.IsEmpty() && !IsCoinBase() && !IsCoinStake())
             return DoS(100, error("CTransaction::CheckTransaction() : txout empty for user transaction"));
-
-        // ppcoin: enforce minimum output amount
+	
+       /*
         if ((!txout.IsEmpty()) && txout.nValue < MIN_TXOUT_AMOUNT)
-            return DoS(100, error("CTransaction::CheckTransaction() : txout.nValue below minimum"));
+           return DoS(100, error("CTransaction::CheckTransaction() : txout.nValue below minimum"));
+		   */
+
+        if (txout.nValue < 0)
+           return DoS(100, error("CTransaction::CheckTransaction() : txout.nValue negative"));
 
         if (txout.nValue > MAX_MONEY)
             return DoS(100, error("CTransaction::CheckTransaction() : txout.nValue too high"));
@@ -503,11 +508,12 @@ bool CTransaction::CheckTransaction() const
 
 
 int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
-                              enum GetMinFee_mode mode, unsigned int nBytes) const
+                              enum GetMinFee_mode mode) const
 {
     // Base fee is either MIN_TX_FEE or MIN_RELAY_TX_FEE
     int64 nBaseFee = (mode == GMF_RELAY) ? MIN_RELAY_TX_FEE : MIN_TX_FEE;
 
+    unsigned int nBytes = ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION);
     unsigned int nNewBlockSize = nBlockSize + nBytes;
     int64 nMinFee = (1 + (int64)nBytes / 1000) * nBaseFee;
 
@@ -623,7 +629,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         unsigned int nSize = ::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION);
 
         // Don't accept it if it can't get into a block
-        int64 txMinFee = tx.GetMinFee(1000, false, GMF_RELAY, nSize);
+        int64 txMinFee = tx.GetMinFee(1000, false, GMF_RELAY);
         if (nFees < txMinFee)
             return error("CTxMemPool::accept() : not enough fees %s, %"PRI64d" < %"PRI64d,
                          hash.ToString().c_str(),
@@ -935,21 +941,15 @@ int generateMTRandom(unsigned int s, int range)
 
 
 
-static const int64 nMinSubsidy = 100 * COIN;
-static const int CUTOFF_HEIGHT = 200000;	// Height at the end of 69 days
 // miner's coin base reward based on nBits
 int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
-	int64 nSubsidy = 10000 * COIN;
+	int64 nSubsidy = 15 * COIN;
 
-	if(nHeight <= 10)
+	if(nHeight <= 17280)
 	{
-        nSubsidy = TAX_PERCENTAGE * CIRCULATION_MONEY;
-        return nSubsidy + nFees;
-	}
-	else if(nHeight > CUTOFF_HEIGHT)
-	{
-		return nMinSubsidy + nFees;
+		nSubsidy = 10000 * COIN;	// 10'000 coins per block for the first three days.
+		return nSubsidy + nFees;
 	}
 
     return nSubsidy + nFees;
@@ -957,21 +957,21 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 
 // miner's coin stake reward based on nBits and coin age spent (coin-days)
 // simple algorithm, not depend on the diff
+//const int YEARLY_BLOCKCOUNT = 2102400;	// 365 * 5760
 int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTime, int nHeight)
 {
     int64 nRewardCoinYear;
-
 	nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
 
     int64 nSubsidy = nCoinAge * nRewardCoinYear / 365;
-
 	if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRI64d" nBits=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nBits);
+
     return nSubsidy;
 }
 
-static const int64 nTargetTimespan = 30 * 30;  
-static const int64 nTargetSpacingWorkMax = 1.5 * nStakeTargetSpacing; 
+static const int64 nTargetTimespan = 15 * 40;  
+static const int64 nTargetSpacingWorkMax = 1 * nStakeTargetSpacing; 
 
 //
 // maximum nBits value could possible be required nTime after
@@ -990,6 +990,7 @@ unsigned int ComputeMaxBits(CBigNum bnTargetLimit, unsigned int nBase, int64 nTi
     }
     if (bnResult > bnTargetLimit)
         bnResult = bnTargetLimit;
+
     return bnResult.GetCompact();
 }
 
@@ -1043,12 +1044,10 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
     int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
 	if(nActualSpacing < 0)
 	{
-		// printf(">> nActualSpacing = %"PRI64d" corrected to 1.\n", nActualSpacing);
 		nActualSpacing = 1;
 	}
 	else if(nActualSpacing > nTargetTimespan)
 	{
-		// printf(">> nActualSpacing = %"PRI64d" corrected to nTargetTimespan (900).\n", nActualSpacing);
 		nActualSpacing = nTargetTimespan;
 	}
 
@@ -1062,13 +1061,6 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
     bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
     bnNew /= ((nInterval + 1) * nTargetSpacing);
 	
-	/*
-	printf(">> Height = %d, fProofOfStake = %d, nInterval = %"PRI64d", nTargetSpacing = %"PRI64d", nActualSpacing = %"PRI64d"\n", 
-		pindexPrev->nHeight, fProofOfStake, nInterval, nTargetSpacing, nActualSpacing);  
-	printf(">> pindexPrev->GetBlockTime() = %"PRI64d", pindexPrev->nHeight = %d, pindexPrevPrev->GetBlockTime() = %"PRI64d", pindexPrevPrev->nHeight = %d\n", 
-		pindexPrev->GetBlockTime(), pindexPrev->nHeight, pindexPrevPrev->GetBlockTime(), pindexPrevPrev->nHeight);  
-	*/
-
     if (bnNew > bnTargetLimit)
         bnNew = bnTargetLimit;
 
@@ -1496,8 +1488,8 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes in their
     // initial block download.
-    bool fEnforceBIP30 = true; // Always active in PumpCoin
-    bool fStrictPayToScriptHash = true; // Always active in PumpCoin
+    bool fEnforceBIP30 = true; // Always active in InfomationCoin
+    bool fStrictPayToScriptHash = true; // Always active in InfomationCoin
 
     //// issue here: it doesn't know the version
     unsigned int nTxPos;
@@ -2004,7 +1996,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot) const
 {
     // These are checks that are independent of context
     // that can be verified before saving an orphan block.
-
+	 
     // Size limits
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
         return DoS(100, error("CheckBlock() : size limits failed"));
@@ -2034,8 +2026,8 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot) const
         return error("CheckBlock() : coinbase output not empty for proof-of-stake block");
 
     // Check coinbase timestamp
-    if (GetBlockTime() > (int64)vtx[0].nTime + nMaxClockDrift)
-        return DoS(50, error("CheckBlock() : coinbase timestamp is too early"));
+    // if (GetBlockTime() > (int64)vtx[0].nTime + nMaxClockDrift)
+    //    return DoS(50, error("CheckBlock() : coinbase timestamp is too early"));
 
     // Check coinstake timestamp
     if (IsProofOfStake() && !CheckCoinStakeTimestamp(GetBlockTime(), (int64)vtx[1].nTime))
@@ -2095,9 +2087,6 @@ bool CBlock::AcceptBlock()
         return DoS(10, error("AcceptBlock() : prev block not found"));
     CBlockIndex* pindexPrev = (*mi).second;
     int nHeight = pindexPrev->nHeight+1;
-
-    if (IsProofOfWork() && nHeight > CUTOFF_POW_BLOCK)
-        return DoS(100, error("AcceptBlock() : No proof-of-work allowed anymore (height = %d)", nHeight));
 
     // Check proof-of-work or proof-of-stake
     if (nBits != GetNextTargetRequired(pindexPrev, IsProofOfStake()))
@@ -2443,7 +2432,7 @@ bool CheckDiskSpace(uint64 nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low!");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "PumpCoin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "InfomationCoin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }
@@ -2505,10 +2494,10 @@ bool LoadBlockIndex(bool fAllowNew)
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xfe;
-        pchMessageStart[1] = 0xeb;
-        pchMessageStart[2] = 0xa3;
-        pchMessageStart[3] = 0x3c;
+        pchMessageStart[0] = 0xcd;
+        pchMessageStart[1] = 0xf1;
+        pchMessageStart[2] = 0xc0;
+        pchMessageStart[3] = 0xef;
 
         bnProofOfStakeLimit = bnProofOfStakeLimitTestNet; // 0x00000fff PoS base target is fixed in testnet
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 0x0000ffff PoW base target is fixed in testnet
@@ -2530,19 +2519,13 @@ bool LoadBlockIndex(bool fAllowNew)
     //
     // Init with genesis block
     //
-    // CBlock(hash=0000058fb7b2d388062c18f4063a5e57f70a8382be08d6fd3f600b9e92b2f9ac, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=a4745951dbeb155b7d1597852309ceff691ca6dfa88599aacfb7f777d6aab251, nTime=1397722271, nBits=1e0fffff, nNonce=1381654, vtx=1, vchBlockSig=)
-    //   Coinbase(hash=a4745951db, nTime=1397722251, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-    //     CTxIn(COutPoint(0000000000, 4294967295), coinbase 04ffff001d020f274b4f6e20417072696c203132203139363120617420393a303720616d204d6f73636f772074696d652074686520566f73746f6b2031207370616365637261667420626c6173746564206f6666)
-    //     CTxOut(empty)
-    //   vMerkleTree: a4745951db 
-
     if (mapBlockIndex.empty())
     {
         if (!fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "On April 12 1961 at 9:07 am Moscow time the Vostok 1 spacecraft blasted off";
+        const char* pszTimestamp = "PUMP Coin";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2555,18 +2538,35 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1397722271;
+        block.nTime    = nChainStartTime;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 1381654;
+        block.nNonce   = 586144;
+
+        if (false  && (block.GetHash() != hashGenesisBlock)) {
+	 
+		// This will figure out a valid hash and Nonce if you're
+		// creating a different genesis block:
+		    uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
+		    while (block.GetHash() > hashTarget)
+		       {
+		           ++block.nNonce;
+		           if (block.nNonce == 0)
+		           {
+		               printf("NONCE WRAPPED, incrementing time");
+		               ++block.nTime;
+		           }
+		       }
+        }
+
+
 
         //// debug print
-        block.print();
         printf("block.GetHash() == %s\n", block.GetHash().ToString().c_str());
         printf("block.hashMerkleRoot == %s\n", block.hashMerkleRoot.ToString().c_str());
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
-
-        assert(block.hashMerkleRoot == uint256("a4745951dbeb155b7d1597852309ceff691ca6dfa88599aacfb7f777d6aab251"));
+			block.print();
+        assert(block.hashMerkleRoot == uint256("0x1da9d2106a64c04bf77835fa53bb632203dcfaaf2816986d0b8d7f5b5d677f13"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
 
         // Start new block file
@@ -2854,7 +2854,7 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0x4e, 0xfe, 0xfe, 0xc8 };
+unsigned char pchMessageStart[4] = { 0xce, 0xfb, 0xfa, 0xdb };
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {
@@ -2867,10 +2867,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         printf("dropmessagestest DROPPING RECV MESSAGE\n");
         return true;
     }
-
-
-
-
 
     if (strCommand == "version")
     {

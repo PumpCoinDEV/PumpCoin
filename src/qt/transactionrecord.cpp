@@ -211,6 +211,8 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx)
                 // Check if the block was requested by anyone
                 if (GetAdjustedTime() - wtx.nTimeReceived > 2 * 60 && wtx.GetRequestCount() == 0)
                     status.maturity = TransactionStatus::MaturesWarning;
+				else if(wtx.GetBlocksToMaturity() == 0)
+					status.maturity = TransactionStatus::Mature;
             }
             else
             {

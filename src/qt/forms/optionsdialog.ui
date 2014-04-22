@@ -256,7 +256,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="minimizPUMPClose">
+        <widget class="QCheckBox" name="minimizeOnClose">
          <property name="toolTip">
           <string>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
          </property>
@@ -340,16 +340,6 @@
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="coinControlFeatures">
-         <property name="toolTip">
-          <string>Whether to show coin control features or not.</string>
-         </property>
-         <property name="text">
-          <string>Display coin &amp;control features (experts only!)</string>
          </property>
         </widget>
        </item>
